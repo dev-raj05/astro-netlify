@@ -1,0 +1,19 @@
+---
+const { post } = Astro.props;
+---
+<div
+  class="card overflow-hidden rounded-xl border bg-base-100 shadow-xl transition-transform duration-500 lg:card-side hover:-translate-y-1 hover:scale-105 w-[60%]"
+>
+  <a href={`/post/${post.slug}`} class="block md:flex md:flex-1">
+    <div class="h-[20%] md:w-full">
+      <img width={700} src={post.mainImage} alt={""} />
+    </div>
+    <div class="flex border border-black w-[60%]">
+      <div class="mt-8 flex items-center gap-2 text-xs ml-3"></div>
+      <!-- <p class="text-xs"><FormattedDate date={post.publishedAt} /></p> -->
+      <h3 class="card-title text-2xl block">
+        {post.title}
+      </h3>
+    </div>
+  </a>
+</div>
