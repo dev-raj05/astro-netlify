@@ -24,8 +24,8 @@ console.log("Posts", posts)
 <Layout>
 	<Header/>
 	<!-- <Welcome /> -->
-	 	<div class="grid grid-cols-1">
-		 	<div class="col-span-1 mb-4">
+	 	<div class="grid grid-cols-1 items-center">
+		 	<div class="col-span-1 mb-4 flex justify-center items-center mt-5">
 			 {posts.length > 0 && <HeroCard post={posts[0]} />}
 			</div>
 			<div class="container mx-auto px-4">
