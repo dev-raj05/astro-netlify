@@ -32,32 +32,32 @@ export const blockContentType = defineType({
             type: "object",
             fields: [{ title: "URL", name: "href", type: "url" }],
           },
-          {
-            // ✅ Custom Font Size Annotation
-            title: "Font Size",
-            name: "fontSize",
-            type: "object",
-            fields: [
-              {
-                name: "value",
-                title: "Value",
-                type: "number",
-                validation: (Rule) => Rule.min(8).max(72),
-              },
-              {
-                name: "unit",
-                title: "Unit",
-                type: "string",
-                options: {
-                  list: [
-                    { title: "Pixels (px)", value: "px" },
-                    { title: "Rems (rem)", value: "rem" },
-                  ],
-                },
-                initialValue: "px",
-              },
-            ],
-          },
+          // {
+          //   // ✅ Custom Font Size Annotation
+          //   title: "Font Size",
+          //   name: "fontSize",
+          //   type: "object",
+          //   fields: [
+          //     {
+          //       name: "value",
+          //       title: "Value",
+          //       type: "number",
+          //       validation: (Rule) => Rule.min(8).max(72),
+          //     },
+          //     {
+          //       name: "unit",
+          //       title: "Unit",
+          //       type: "string",
+          //       options: {
+          //         list: [
+          //           { title: "Pixels (px)", value: "px" },
+          //           { title: "Rems (rem)", value: "rem" },
+          //         ],
+          //       },
+          //       initialValue: "px",
+          //     },
+          //   ],
+          // },
         ],
       },
     }),

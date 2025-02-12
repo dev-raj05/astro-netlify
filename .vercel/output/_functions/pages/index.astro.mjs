@@ -2,7 +2,7 @@ import { s as sanityClient } from '../chunks/page-ssr_FyCvyDbI.mjs';
 import { c as createComponent, a as createAstro, r as renderTemplate, m as maybeRenderHead, b as addAttribute, e as renderComponent } from '../chunks/astro/server_BoqlVpRv.mjs';
 import 'kleur/colors';
 import 'clsx';
-import { $ as $$Layout } from '../chunks/Layout_C_uN_6o9.mjs';
+import { $ as $$Layout } from '../chunks/Layout_acmHNYUL.mjs';
 /* empty css                                 */
 export { renderers } from '../renderers.mjs';
 

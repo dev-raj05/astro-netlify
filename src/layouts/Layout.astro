@@ -3,6 +3,7 @@ import {VisualEditing} from '@sanity/astro/visual-editing'
 import Header from '../components/Header.astro'
 import Navbar from '../components/Navbar.astro'
 import "../styles/global.css";
+// import '../../public/styles.css'
 
 const visualEditingEnabled = import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLED == 'true'
 ---
@@ -15,6 +16,7 @@ const visualEditingEnabled = import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLE
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>MedBlogs</title>
+		<link rel="stylesheet" href="/styles.css" />
 	</head>
 	<body class="flex flex-col justify-center">
 		<div class="flex flex-col min-h-screen mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 container">

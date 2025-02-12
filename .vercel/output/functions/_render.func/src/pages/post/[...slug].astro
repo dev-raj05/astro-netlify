@@ -1,16 +1,13 @@
 ---
-// import { sanityClient } from "sanity:client";
 import Layout from "../../layouts/Layout.astro";
 import { loadQuery } from "../../lib/load-query";
 import type { SanityDocument } from "@sanity/client";
-// import { date } from "astro:schema";
-// import PortableText from "../../components/PortableText.astro";
+import PortableText from "../../components/PortableText.astro";
 import { sanityClient } from "sanity:client";
-import BlogLayout from "../../layouts/BlogLayout.astro";
-import Navbar from "../../components/Navbar.astro";
-import { date } from "astro:schema";
+import RichTextRenderer from "../../components/RichTextRenderer";
+
 import "../../styles/global.css";
-import { PortableText } from "@portabletext/react";
+
 
 
 export async function getStaticPaths() {
@@ -29,7 +26,7 @@ export async function getStaticPaths() {
 const { params } = Astro;
 // const { slug } = Astro.params;
 
-const querypost = `*[_type == 'post' && slug.current == $slug][0]{
+const querypost =`*[_type == 'post' && slug.current == $slug][0]{
   title,
   "slug": slug.current,
   "mainImage": coalesce(mainImage.asset->url, ""),
@@ -84,7 +81,7 @@ console.log("Fetched Post Data:", post);
     <!-- Blog Content -->
     <div class="mt-12">
       <!-- <PortableText portableText={post.body} /> -->
-      <!-- <MyPortableText content={post.body} client:load /> -->
+      <RichTextRenderer content={post.body} client:load />
     </div>
   </main>
   
