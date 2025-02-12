@@ -1,5 +1,5 @@
+// ./src/sanity/schemaTypes/blockContent.ts
 import { defineType, defineArrayMember } from "sanity";
-// import { codeInput } from "@sanity/code-input"; // ✅ Import the Sanity Code Input Plugin
 
 export const blockContentType = defineType({
   title: "Block Content",
@@ -15,6 +15,7 @@ export const blockContentType = defineType({
         { title: "H2", value: "h2" },
         { title: "H3", value: "h3" },
         { title: "H4", value: "h4" },
+        { title: "Large Text", value: "large" },
         { title: "Quote", value: "blockquote" },
       ],
       lists: [{ title: "Bullet", value: "bullet" }],
@@ -22,7 +23,7 @@ export const blockContentType = defineType({
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
-          { title: "Code", value: "code" }, // ✅ Inline Code Support
+          { title: "Code", value: "code" },
         ],
         annotations: [
           {
@@ -31,18 +32,44 @@ export const blockContentType = defineType({
             type: "object",
             fields: [{ title: "URL", name: "href", type: "url" }],
           },
+          {
+            // ✅ Custom Font Size Annotation
+            title: "Font Size",
+            name: "fontSize",
+            type: "object",
+            fields: [
+              {
+                name: "value",
+                title: "Value",
+                type: "number",
+                validation: (Rule) => Rule.min(8).max(72),
+              },
+              {
+                name: "unit",
+                title: "Unit",
+                type: "string",
+                options: {
+                  list: [
+                    { title: "Pixels (px)", value: "px" },
+                    { title: "Rems (rem)", value: "rem" },
+                  ],
+                },
+                initialValue: "px",
+              },
+            ],
+          },
         ],
       },
     }),
 
-    // ✅ Image Block
+    // Image Block
     defineArrayMember({
       type: "image",
       options: { hotspot: true },
       fields: [{ name: "alt", type: "string", title: "Alternative Text" }],
     }),
 
-    // ✅ Code Block (Fix for "Unknown type: code" error)
+    // Code Block
     defineArrayMember({
       type: "object",
       name: "code",
@@ -66,13 +93,13 @@ export const blockContentType = defineType({
         {
           name: "code",
           title: "Code",
-          type: "text", // ✅ Store code as text
+          type: "text",
           rows: 10,
         },
       ],
     }),
 
-    // ✅ Table Block
+    // Table Block
     defineArrayMember({
       type: "object",
       name: "table",

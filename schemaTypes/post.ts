@@ -18,6 +18,16 @@ export const postType = defineType({
       },
     }),
     defineField({
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        layout: "tags",
+      },
+      validation: (Rule) => Rule.max(10).warning("You can add up to 10 tags."),
+    }),
+    defineField({
       name: "author",
       type: "reference",
       to: { type: "author" },

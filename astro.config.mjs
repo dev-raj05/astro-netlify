@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
 
 import { loadEnv } from "vite";
+import icon from "astro-icon";
 const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
   process.env.NODE_ENV,
   process.cwd(),
@@ -23,11 +24,12 @@ export default defineConfig({
       studioBasePath: "/studio",
       visualEditing: true,
       stega: {
-        // enabled: true,
+        // enabled: false,
         studioUrl: "/studio",
       },
     }),
     react(),
+    icon(),
   ],
   output: "server",
   adapter: vercel(),
