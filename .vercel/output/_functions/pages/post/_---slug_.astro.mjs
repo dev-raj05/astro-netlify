@@ -1,12 +1,12 @@
 import { s as sanityClient } from '../../chunks/page-ssr_FyCvyDbI.mjs';
 import { c as createComponent, a as createAstro, r as renderTemplate, m as maybeRenderHead, s as spreadAttributes, g as renderSlot, e as renderComponent, b as addAttribute } from '../../chunks/astro/server_BoqlVpRv.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../../chunks/Layout_Nd-vBnvh.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_5ZVhW5qT.mjs';
 import { LIST_NEST_MODE_HTML, isPortableTextToolkitList, isPortableTextListItemBlock, isPortableTextToolkitSpan, isPortableTextBlock, isPortableTextToolkitTextNode, nestLists, buildMarksTree } from '@portabletext/toolkit';
 import 'clsx';
 import imageUrlBuilder from '@sanity/image-url';
 /* empty css                                    */
-import { s as slugify } from '../../chunks/Slugify_BQtZ3wUd.mjs';
+import { s as slugify } from '../../chunks/Slugify_Ta8JJPF6.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const visualEditingEnabled = true;
@@ -16,17 +16,18 @@ async function loadQuery({
   params
 }) {
   const perspective = "previewDrafts" ;
-  const { result, resultSourceMap } = await sanityClient.fetch(
-    query,
-    params ?? {},
-    {
-      filterResponse: false,
-      perspective,
-      resultSourceMap: "withKeyArraySelector" ,
-      stega: visualEditingEnabled,
-      ...{ token } 
-    }
-  );
+  const {
+    result,
+    resultSourceMap
+  } = await sanityClient.fetch(query, params ?? {}, {
+    filterResponse: false,
+    perspective,
+    resultSourceMap: "withKeyArraySelector" ,
+    stega: visualEditingEnabled,
+    ...{
+      token
+    } 
+  });
   return {
     data: result,
     sourceMap: resultSourceMap,
@@ -453,8 +454,7 @@ const $$ = createComponent(async ($$result, $$props, $$slots) => {
   "author":author->name,
   body,
   publishedAt,
-  tags
-  "category": category->title 
+  tags,
 }`;
   const { data: post } = await loadQuery({
     query: querypost,

@@ -2,6 +2,8 @@
 import Link from "./Link.astro";
 import { SITE_TITLE, HeaderLinks, DARK_THEME, LIGHT_THEME} from '../consts';
 import { Icon } from 'astro-icon/components'
+
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="z-50 flex w-full flex-wrap py-7 md:flex-nowrap md:justify-start">
@@ -50,8 +52,9 @@ import { Icon } from 'astro-icon/components'
           }
         </ul> -->
       </div>
-
-      <a href="/search" class="swap swap-rotate rounded-xl px-3 py-2 text-sm">
+      {
+        currentPath === 'http://localhost:4321/search' ? "Goback" : (
+        <a href="/search" class="swap swap-rotate rounded-xl px-3 py-2 text-sm">
         <!-- this hidden checkbox controls the state -->
         <!-- <input type="text" class="theme-controller" data-unchecked-value={LIGHT_THEME} value={DARK_THEME} /> -->
         <!-- sun icon -->
@@ -60,6 +63,9 @@ import { Icon } from 'astro-icon/components'
         <!-- <i class="icon-base swap-on i-tabler-moon-filled"></i> -->
         <Icon href={'/seacrh'} size={30} name={"search"}/>
       </a>
+        )
+      }
+      
     </div>
   </nav>
 </header>

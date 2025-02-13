@@ -35,8 +35,7 @@ const querypost =`*[_type == 'post' && slug.current == $slug][0]{
   "author":author->name,
   body,
   publishedAt,
-  tags
-  "category": category->title 
+  tags,
 }`;
 
 const { data: post } = await loadQuery({

@@ -9,6 +9,7 @@ import { sanityClient } from "sanity:client";
 import "../../styles/global.css";
 // import slugify from "../../lib/Slugify";
 import {slugify} from "../../lib/Slugify";
+import { formatDate } from "../../lib/Formatdate";
 
 
 
@@ -85,14 +86,15 @@ console.log("Fetched Post Data:", post);
       </p> -->
       <div class="mt-4 text-sm text-gray-500">
         <small class="text-lg font-bold">Created by {post.author}</small>
-        <small></small>
+       
       </div>
       
   
       <!-- Publish Date -->
       <div class="mt-4 text-sm text-gray-500">
-        <small>Published on {post.publishedAt}</small>
-        <small></small>
+        <!-- <small>Published on {post.publishedAt}</small> -->
+        <p class="text-xs text-gray-500">{formatDate(post.publishedAt)}</p>
+        <!-- <small></small> -->
       </div>
       
   
@@ -102,6 +104,7 @@ console.log("Fetched Post Data:", post);
     <div class="mt-12">
       <PortableText portableText={post.body} />
       <!-- <RichTextRenderer content={post.body} client:load /> -->
+       
     </div>
   </main>
   

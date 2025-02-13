@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/preact": "^4.0.4",
     "@astrojs/react": "^4.2.0",
     "@astrojs/vercel": "^8.0.6",
     "@portabletext/react": "^3.2.1",
@@ -25,6 +26,7 @@
     "astro": "^5.2.5",
     "astro-icon": "^1.1.5",
     "astro-portabletext": "^0.11.1",
+    "preact": "^10.25.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sanity": "^3.74.1",

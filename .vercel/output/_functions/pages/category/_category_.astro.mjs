@@ -2,7 +2,7 @@ import { s as sanityClient } from '../../chunks/page-ssr_FyCvyDbI.mjs';
 import { c as createComponent, a as createAstro, r as renderTemplate } from '../../chunks/astro/server_BoqlVpRv.mjs';
 import 'kleur/colors';
 import 'clsx';
-import { s as slugify } from '../../chunks/Slugify_BQtZ3wUd.mjs';
+import { s as slugify } from '../../chunks/Slugify_Ta8JJPF6.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro();

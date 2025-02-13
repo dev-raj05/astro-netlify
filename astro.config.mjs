@@ -4,6 +4,7 @@ import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
+import preact from "@astrojs/preact";
 
 import { loadEnv } from "vite";
 import icon from "astro-icon";
@@ -16,6 +17,7 @@ const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
 // https://astro.build/config
 export default defineConfig({
   integrations: [
+    preact(),
     sanity({
       projectId: PUBLIC_SANITY_PROJECT_ID,
       dataset: PUBLIC_SANITY_DATASET,

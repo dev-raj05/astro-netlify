@@ -2,9 +2,10 @@
 import { sanityClient } from "sanity:client";
 import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/Card.astro";
+import {unSlugify} from '../../lib/Slugify'
 
 const posts = await sanityClient.fetch(`*[_type == "post"]{
-  "tags": tags[]->name
+  "tags": tags[]
 }`);
 
 const allTags = [...new Set(posts.flatMap(post => post.tags || []))];
@@ -19,30 +20,23 @@ export async function getStaticPaths() {
 const { tag } = Astro.params;
 
 const filteredPosts = await sanityClient.fetch(
-  `*[_type == "post" && $tag in tags[]->name]{
+  `*[_type == "post" && $tag in tags[]]{
     title,
     slug,
-    mainImage,
-    "tags": tags[]->name
+    "mainImage": coalesce(mainImage.asset->url, ""),
+    tags
   }`,
-  { tag }
+  { tag: `${unSlugify(tag)}` }
 );
+
+console.log(tag);
 
 console.log(filteredPosts);
 ---
 <Layout>
     <h1 class="text-2xl font-bold">Posts for {tag}</h1>
-
-{filteredPosts.length > 0 ? (
-  filteredPosts.map(post => (
-    <div class="border p-4 my-2">
-      <img src={post.mainImage} alt={post.title} class="w-full h-40 object-cover rounded-md"/>
-      <h2 class="text-xl font-semibold mt-2">
-        <a href={`/posts/${post.slug}`} class="text-blue-500 hover:underline">{post.title}</a>
-      </h2>
-    </div>
-  ))
-) : (
-  <p>No posts found for this tag.</p>
-)}
+    {filteredPosts.length  > 0 ? (<div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+      {filteredPosts.map((post) => <Card post={post} />)}
+    </div>) : <p>No post available related to this tag</p> }
+    
 </Layout>

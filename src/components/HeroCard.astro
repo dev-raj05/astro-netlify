@@ -1,6 +1,8 @@
 ---
+import {formatDate} from '../lib/Formatdate'
 const { post } = Astro.props;
 ---
+
 <div class="card overflow-hidden rounded-xl  bg-base-100 shadow-xl transition-transform duration-500 hover:-translate-y-1 hover:scale-105">
   <a href={`/post/${post.slug}`} class="block lg:flex">
     {/* Bigger Image Section */}
@@ -28,7 +30,8 @@ const { post } = Astro.props;
         ))}
         </div>
         
-      <p class="text-xs text-gray-500">{post.publishedAt}</p>
+      <!-- <p class="text-xs text-gray-500">{post.publishedAt}</p> -->
+      <p class="text-xs text-gray-500">{formatDate(post.publishedAt)}</p>
       </div>
 
       {/* Date */}
