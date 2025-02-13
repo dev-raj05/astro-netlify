@@ -7,6 +7,8 @@ import { sanityClient } from "sanity:client";
 // import RichTextRenderer from "../../components/RichTextRenderer";
 
 import "../../styles/global.css";
+// import slugify from "../../lib/Slugify";
+import {slugify} from "../../lib/Slugify";
 
 
 
@@ -30,10 +32,10 @@ const querypost =`*[_type == 'post' && slug.current == $slug][0]{
   title,
   "slug": slug.current,
   "mainImage": coalesce(mainImage.asset->url, ""),
-  author,
+  "author":author->name,
   body,
   publishedAt,
-  tags
+  tags,
 }`;
 
 const { data: post } = await loadQuery({
@@ -41,10 +43,13 @@ const { data: post } = await loadQuery({
   params,
 });
 
+
+
 // const post = await sanityClient.fetch(querypost, params);
 
 // console.log("Fetched Post Data:", singlePost);
 console.log("Fetched Post Data:", post);
+// console.log("Fetched Post Data:", post.author);
 ---
 <Layout>
 
@@ -60,21 +65,36 @@ console.log("Fetched Post Data:", post);
           <img class="head-img" src={post.mainImage} alt={post.alt} />
         </div>
       )}
+    
   
       <!-- Tags -->
       <div class="flex flex-wrap justify-center gap-3 mt-7">
         {post.tags.map((tag) => (
           <span class="px-3 py-1 text-sm font-medium badge badge-outline border border-black shadow-md hover:scale-105 transition">
-            <a href="#" class="">{tag}</a>
+            <a href={`/tags/${slugify(tag)}`} class="">{tag}</a>
+            
           </span>
         ))}
       </div>
+      <!-- <p class=" mt-5 p-2 w-[20%] m-auto">Created by<a href="" class="ml-3"> {post.author}</a></p> -->
+      <!-- <p className="border border-black mt-5 p-2 w-[20%] m-auto flex items-center gap-2">
+        {post.author && post.author.image && (
+          <img src={post.author.image} alt={post.author.name} className="w-8 h-8 rounded-full" />
+        )}
+        <a href="#" className="text-blue-500 hover:underline">{post.author?.name}</a>
+      </p> -->
+      <div class="mt-4 text-sm text-gray-500">
+        <small class="text-lg font-bold">Created by {post.author}</small>
+        <small></small>
+      </div>
+      
   
       <!-- Publish Date -->
       <div class="mt-4 text-sm text-gray-500">
         <small>Published on {post.publishedAt}</small>
         <small></small>
       </div>
+      
   
     </article>
   

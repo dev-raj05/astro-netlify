@@ -22,10 +22,9 @@ import { Icon } from 'astro-icon/components'
     <div class="ms-auto flex items-center gap-x-2 py-1">
       <a
         class="inline-flex items-center gap-x-2 rounded-xl border border-transparent px-3 py-2 text-sm font-medium disabled:pointer-events-none disabled:opacity-50"
-        href="/search/"
-        href="/search/"
+        href="/search"
       >
-        <i class="icon-base i-tabler-search"></i>
+        <i class="icon-base i-tabler-search"> </i>
       </a>
 
       <div class="dropdown dropdown-end">
@@ -52,15 +51,15 @@ import { Icon } from 'astro-icon/components'
         </ul> -->
       </div>
 
-      <label class="swap swap-rotate rounded-xl px-3 py-2 text-sm">
+      <a href="/search" class="swap swap-rotate rounded-xl px-3 py-2 text-sm">
         <!-- this hidden checkbox controls the state -->
         <!-- <input type="text" class="theme-controller" data-unchecked-value={LIGHT_THEME} value={DARK_THEME} /> -->
         <!-- sun icon -->
         <!-- <i class="icon-base swap-off i-tabler-sun-filled"></i> -->
         <!-- moon icon -->
         <!-- <i class="icon-base swap-on i-tabler-moon-filled"></i> -->
-        <Icon size={30} name={"search"}/>
-      </label>
+        <Icon href={'/seacrh'} size={30} name={"search"}/>
+      </a>
     </div>
   </nav>
 </header>

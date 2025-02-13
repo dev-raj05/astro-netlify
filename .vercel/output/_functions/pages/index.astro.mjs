@@ -2,7 +2,7 @@ import { s as sanityClient } from '../chunks/page-ssr_FyCvyDbI.mjs';
 import { c as createComponent, a as createAstro, r as renderTemplate, m as maybeRenderHead, b as addAttribute, e as renderComponent } from '../chunks/astro/server_BoqlVpRv.mjs';
 import 'kleur/colors';
 import 'clsx';
-import { $ as $$Layout } from '../chunks/Layout_acmHNYUL.mjs';
+import { $ as $$Layout } from '../chunks/Layout_Nd-vBnvh.mjs';
 /* empty css                                 */
 export { renderers } from '../renderers.mjs';
 
@@ -11,7 +11,7 @@ const $$HeroCard = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$HeroCard;
   const { post } = Astro2.props;
-  return renderTemplate`${maybeRenderHead()}<div class="card overflow-hidden rounded-xl border bg-base-100 shadow-xl transition-transform duration-500 hover:-translate-y-1 hover:scale-105"> <a${addAttribute(`/post/${post.slug}`, "href")} class="block lg:flex">  <div class="lg:w-2/3"> <img class="w-full h-full object-cover"${addAttribute(post.mainImage, "src")}${addAttribute(post.alt, "alt")}> </div>  <div class="card-body flex flex-col justify-between p-6 lg:w-1/3">  <div class="flex flex-col flex-wrap gap-2 text-xs"> <div class="flex flex-wrap gap-2 text-xs"> ${post.tags.map((tag) => renderTemplate`<span class="badge badge-outline border border-black px-3 py-1"> ${tag} </span>`)} </div> <p class="text-xs text-gray-500">${post.publishedAt}</p> </div>   <h3 class="card-title text-lg font-semibold">${post.title}</h3>  <p class="text-sm text-gray-600">${post.description}</p> </div> </a> </div>`;
+  return renderTemplate`${maybeRenderHead()}<div class="card overflow-hidden rounded-xl  bg-base-100 shadow-xl transition-transform duration-500 hover:-translate-y-1 hover:scale-105"> <a${addAttribute(`/post/${post.slug}`, "href")} class="block lg:flex">  <div class="lg:w-2/3"> <img class="w-full h-full object-cover"${addAttribute(post.mainImage, "src")}${addAttribute(post.alt, "alt")}> </div>  <div class="card-body flex flex-col justify-between p-6 lg:w-1/3">  <div class="flex flex-col flex-wrap gap-2 text-xs"> <div class="flex flex-wrap gap-2 text-xs"> ${post.tags.map((tag) => renderTemplate`<span class="badge badge-outline border border-black px-3 py-1"> ${tag} </span>`)} </div> <p class="text-xs text-gray-500">${post.publishedAt}</p> </div>   <h3 class="card-title text-lg font-semibold">${post.title}</h3>  <p class="text-sm text-gray-600">${post.description}</p> </div> </a> </div>`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/components/HeroCard.astro", void 0);
 
 const $$Astro = createAstro();
@@ -19,7 +19,11 @@ const $$Card = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Card;
   const { post } = Astro2.props;
-  return renderTemplate`${maybeRenderHead()}<div class="card rounded-xl overflow-hidden border bg-white shadow-xl transition-transform duration-500 hover:-translate-y-1 hover:scale-105"> <a${addAttribute(`/post/${post.slug}`, "href")} class="block">  <figure class="w-full"> <img class="w-full h-64 object-cover"${addAttribute(post.mainImage, "src")}${addAttribute(post.alt, "alt")}> </figure>  <div class="p-5">  <div class="flex flex-wrap gap-2 text-xs mb-2"> ${post.tags?.map((tag, index) => renderTemplate`<span${addAttribute(index, "key")} class="badge badge-outline border border-black px-3 py-1"> ${tag} </span>`)} </div>  <p class="text-xs text-gray-500">${post.publishedAt}</p>  <h3 class="text-lg font-semibold">${post.title}</h3> </div> </a> </div>`;
+  return renderTemplate`${maybeRenderHead()}<div class="card rounded-xl overflow-hidden bg-white shadow-xl transition-transform duration-500 hover:-translate-y-1 hover:scale-105"> <a${addAttribute(`/post/${post.slug}`, "href")} class="block">  <figure class="w-full"> <img class="w-full h-64 object-cover"${addAttribute(post.mainImage, "src")}${addAttribute(post.alt, "alt")}> </figure>  <div class="p-5">  <div class="flex flex-wrap gap-2 text-xs mb-2"> ${post.tags?.map((tag) => renderTemplate`<span class="badge badge-outline border border-black px-3 py-1"> ${tag} </span>`)} </div> <!-- {post.category.map(cate => (
+        <a href={\`/category/\${slugify(cate)}\`} class="bg-gray-200 px-2 py-1 text-sm rounded hover:bg-gray-300">
+          {cate}
+        </a>
+      ))} -->  <p class="text-xs text-gray-500">${post.publishedAt}</p>  <h3 class="text-lg font-semibold">${post.title}</h3> </div> </a> </div>`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/components/Card.astro", void 0);
 
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
@@ -30,7 +34,9 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
     publishedAt,   
     author,
     body,
-	tags
+    tags,
+	
+    
 }`;
   const posts = await sanityClient.fetch(Query);
   console.log("Posts", posts);

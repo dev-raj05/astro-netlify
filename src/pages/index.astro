@@ -1,12 +1,36 @@
 ---
 import HeroCard from '../components/HeroCard.astro';
-// import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from "sanity:client";
 import Card from '../components/Card.astro'
 import "../styles/global.css";
-// import Header from '../components/Header.astro';
-// import Navbar from '../components/Navbar.astro';
+
+
+// const today = new Date();
+// today.setHours(0, 0, 0, 0);
+// const tomorrow = new Date(today);
+// tomorrow.setDate(tomorrow.getDate() + 1);
+
+// const todaypost = `*[
+//   _type == "post" &&
+//   publishedAt >= $today &&
+//   publishedAt < $tomorrow
+// ]{
+//   title,
+//   "slug": slug.current,
+//   "mainImage": mainImage.asset->url,
+//   publishedAt,
+//   author,
+//   body,
+//   tags,
+  
+// }`;
+
+// const poststo = await sanityClient.fetch(todaypost, {
+//   today: today.toISOString(),
+//   tomorrow: tomorrow.toISOString(),
+// });
+// console.log(poststo);
 
 
 const Query = `*[_type == "post"]{
@@ -16,11 +40,12 @@ const Query = `*[_type == "post"]{
     publishedAt,   
     author,
     body,
-	tags
+	tags,
+	category
 }`;
 
 const posts = await sanityClient.fetch(Query);
-console.log("Posts", posts) 
+// console.log("Posts", posts) 
 ---
 
 <Layout>

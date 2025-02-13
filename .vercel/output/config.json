@@ -20,11 +20,19 @@
 			"dest": "_render"
 		},
 		{
+			"src": "^/category/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
 			"src": "^/post(?:/(.*?))?/?$",
 			"dest": "_render"
 		},
 		{
 			"src": "^/studio(?:/(.*?))?/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/tags/([^/]+?)/?$",
 			"dest": "_render"
 		},
 		{

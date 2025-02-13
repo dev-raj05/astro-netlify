@@ -16,8 +16,12 @@ const Query = `*[_type == "post"]{
     publishedAt,   
     author,
     body,
-	tags
+    tags,
+	
+    
 }`;
+// "category": category[]->{title} 
+
 
 const posts = await sanityClient.fetch(Query);
 console.log("Posts", posts) 
