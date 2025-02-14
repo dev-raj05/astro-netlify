@@ -6,7 +6,7 @@ import { Icon } from 'astro-icon/components'
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="z-50 flex w-full flex-wrap py-7 md:flex-nowrap md:justify-start">
+<header class="z-50 flex w-full flex-wrap py-10 md:flex-nowrap md:justify-start">
   <nav
     class="relative mx-auto flex w-full max-w-7xl basis-full flex-wrap items-center px-4"
     aria-label="Global"
@@ -53,7 +53,7 @@ const currentPath = Astro.url.pathname;
         </ul> -->
       </div>
       {
-        currentPath === 'http://localhost:4321/search' ? "Goback" : (
+        currentPath === 'http://localhost:4321/search' ? (<a href="/">Goback</a>) : (
         <a href="/search" class="swap swap-rotate rounded-xl px-3 py-2 text-sm">
         <!-- this hidden checkbox controls the state -->
         <!-- <input type="text" class="theme-controller" data-unchecked-value={LIGHT_THEME} value={DARK_THEME} /> -->
@@ -65,7 +65,6 @@ const currentPath = Astro.url.pathname;
       </a>
         )
       }
-      
     </div>
   </nav>
 </header>

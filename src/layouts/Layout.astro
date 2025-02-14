@@ -3,6 +3,8 @@ import {VisualEditing} from '@sanity/astro/visual-editing'
 import Header from '../components/Header.astro'
 import Navbar from '../components/Navbar.astro'
 import "../styles/global.css";
+import Subscribe from '../components/Subscribe.astro';
+import Footer from '../components/Footer.astro';
 // import '../../public/styles.css'
 
 const visualEditingEnabled = import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLED == 'true'
@@ -18,15 +20,23 @@ const visualEditingEnabled = import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLE
 		<title>MedBlogs</title>
 		<link rel="stylesheet" href="/styles.css" />
 	</head>
-	<body class="flex flex-col justify-center">
-		<div class="flex flex-col min-h-screen mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 container">
-		<Navbar/>
-		<main class="flex-grow">
-			<slot />
-			<VisualEditing enabled={visualEditingEnabled} zIndex={1000} />
-		</main>
+	<body class="flex flex-col">
+		<div>
+
+			<div class="flex flex-col min-h-screen mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 container">
+				<Navbar/>
+				<main class="flex-grow">
+					<slot />
+					<VisualEditing enabled={visualEditingEnabled} zIndex={1000} />
+				</main>
+				
+			</div>
+			<Footer/>
 		</div>
+		
 	</body>
+	
+	
 </html>
 
 <style>
