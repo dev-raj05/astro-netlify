@@ -34,9 +34,9 @@ console.log(tag);
 console.log(filteredPosts);
 ---
 <Layout>
-    <h1 class="text-2xl font-bold">Posts for {tag}</h1>
-    {filteredPosts.length  > 0 ? (<div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
-      {filteredPosts.map((post) => <Card post={post} />)}
-    </div>) : <p>No post available related to this tag</p> }
-    
+  <h1 class="text-2xl font-bold">Posts for {tag}</h1>
+  {filteredPosts.length  > 0 ? (<div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+    {filteredPosts.map((post) => <Card post={post} />)}
+  </div>) : <p>No post available related to this tag</p> }
+  
 </Layout>

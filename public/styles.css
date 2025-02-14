@@ -11,6 +11,11 @@ h2 {
 /* body {
   background-color: #f5f4f4;
 } */
+body {
+  font-family: "Poppins", serif;
+  /* font-weight: 100; */
+  /* font-style: normal; */
+}
 .share-btn {
   position: relative;
   border: none;

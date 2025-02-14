@@ -1,53 +1,35 @@
 import { s as sanityClient } from '../chunks/page-ssr_FyCvyDbI.mjs';
-import { c as createComponent, r as renderTemplate, e as renderComponent } from '../chunks/astro/server_BoqlVpRv.mjs';
+import { c as createComponent, a as createAstro, r as renderTemplate, d as renderComponent, m as maybeRenderHead, b as addAttribute } from '../chunks/astro/server_BDnHfdZN.mjs';
 import 'kleur/colors';
-import { useState, useEffect } from 'preact/hooks';
-import { jsxs, jsx } from 'preact/jsx-runtime';
-import { $ as $$Layout } from '../chunks/Layout_5ZVhW5qT.mjs';
+import { $ as $$Layout } from '../chunks/Formatdate_Dg-7c8bM.mjs';
+import { $ as $$Card } from '../chunks/Card_CLyUDPvn.mjs';
 export { renderers } from '../renderers.mjs';
 
-const Search = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    async function fetchPosts() {
-      if (searchQuery.trim() === "") {
-        setPosts([]);
-        return;
-      }
-      const data = await sanityClient.fetch(`*[_type == "post" && 
-            (title match $query || body match $query || tags[] match $query)
-          ]{
-            title,
-            body,
-            tags,
-            "slug": slug.current
-          }`, {
-        query: `*${searchQuery}*`
-      });
-      setPosts(data);
-    }
-    fetchPosts();
-  }, [searchQuery]);
-  return jsxs("div", {
-    children: [jsx("input", {
-      type: "text",
-      name: "q",
-      placeholder: "Search posts...",
-      value: searchQuery,
-      onInput: (e) => setSearchQuery(e.target.value)
-    }), jsx("ul", {
-      children: posts.map((post) => jsx("li", {
-        children: jsx("h2", {
-          children: post.title
-        })
-      }, post.slug))
-    })]
-  });
-};
-
-const $$Search = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "SearchComponent", Search, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/components/Search.jsx", "client:component-export": "default" })} ` })}`;
+const $$Astro = createAstro();
+const $$Search = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$Search;
+  const searchQuery = Astro2.url.searchParams.get("q") || "";
+  const posts = await sanityClient.fetch(
+    `*[_type == "post" && 
+    (title match $query || tags[] match $query)
+  ]{
+    title,
+    "mainImage": coalesce(mainImage.asset->url, ""),
+    body,
+    tags,
+    "slug": slug.current
+  }`,
+    { query: `*${searchQuery}*` }
+    // Use the search query to filter
+  );
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<form method="GET" class="w-full max-w-xl mx-auto p-6 flex  justify-center items-center gap-5"> <input type="text" name="q" placeholder="Search posts..."${addAttribute(searchQuery, "value")} class="w-full p-4 text-lg border border-gray-300 rounded-xl shadow-md"> <button type="submit" class="w-[7rem] p-3 text-white bg-blue-500 rounded-lg shadow-md">Search</button> </form>  <div class="mt-6 space-y-4"> ${posts.length > 0 ? renderTemplate`<div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2"> ${posts.map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "post": post })}`)} </div>` : renderTemplate`<p class="text-red-600 text-center">No such post related to your query</p>`} </div> ` })} <!-- ---
+import SearchComponent from "../components/Search.jsx";
+import Layout from "../layouts/Layout.astro";
+---
+<Layout>
+    <SearchComponent client:load />
+</Layout> -->`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/pages/search.astro", void 0);
 
 const $$file = "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/pages/search.astro";

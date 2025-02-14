@@ -1,0 +1,35 @@
+---
+import { sanityClient } from "sanity:client";
+import { loadQuery } from "../../lib/load-query";
+import type { SanityDocument } from "@sanity/client";
+
+
+
+export async function getStaticPaths() {
+    const { data: posts } = await loadQuery<SanityDocument[]>({
+    query: `*[_type == "post"]`,
+  });
+  return posts.map(({ slug }) => {
+    return {
+      params: {
+        slug: slug.current,
+      },
+    };
+  });
+}
+const { slug } = Astro.params;
+
+const author = await sanityClient.fetch(
+  `*[_type == "author" && slug.current == $slug][0]{
+    _id,
+    name,
+    bio,
+    "imageUrl": image.asset->url
+  }`,
+  { slug }
+);
+
+console.log(slug);
+
+
+---

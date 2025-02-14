@@ -1,52 +1,72 @@
 ---
+import { Icon } from "astro-icon/components";
+
 
 ---
-<footer class="bg-gray-900 text-white py-8">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+<footer class=" px-4 sm:px-6 mb-4 flex flex-col justify-center items-center">
+    <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5  gap-5 border-t border-gray-200 py-10 ">
+        <!-- Logo Section -->
+        <div class="flex items-start gap-2 justify-center sm:justify-start">
+            <Icon name="logo" size={30} class={"text-center"}/>
+            <span class="text-indigo-600 font-semibold mt-1 text-center">Boolean Maths</span>
+        </div>
         
-        <!-- Logo and Description -->
+        <!-- Useful Links -->
         <div>
-          <h2 class="text-2xl font-bold">Dev Dhanak</h2>
-          <p class="text-gray-400 mt-2">Building modern and scalable web applications.</p>
+            <h3 class="font-semibold text-gray-800 mb-4 text-center">Useful Links</h3>
+            <ul class="space-y-2 text-sm text-center">
+                <li><a href="#" class="text-gray-600 hover:text-indigo-600 transition duration-300">Home</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-indigo-600 transition duration-300">Product</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-indigo-600 transition duration-300">Solution</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-indigo-600 transition duration-300">Privacy policy</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-indigo-600 transition duration-300">Terms of use</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-indigo-600 transition duration-300">Refund policy</a></li>
+            </ul>
         </div>
-  
-        <!-- Navigation Links -->
+        
+        <!-- Resources -->
         <div>
-          <h3 class="text-lg font-semibold">Quick Links</h3>
-          <ul class="mt-2 space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-          </ul>
+            <h3 class="font-semibold text-gray-800 mb-4 text-center">Resources</h3>
+            <ul class="space-y-2 text-sm text-center">
+                <li><a href="#" class="text-gray-600 hover:text-indigo-600 transition duration-300">Pricing</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-indigo-600 transition duration-300">YT Video 1</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-indigo-600 transition duration-300">YT Video 2</a></li>
+            </ul>
         </div>
-  
-        <!-- Social Media Links -->
-        <div>
-          <h3 class="text-lg font-semibold">Follow Me</h3>
-          <div class="flex justify-center md:justify-start gap-4 mt-2">
-            <a href="https://github.com/yourgithub" target="_blank" class="text-gray-400 hover:text-white transition-transform transform hover:scale-110">
-              <i class="fab fa-github text-2xl"></i>
-            </a>
-            <a href="https://linkedin.com/in/yourlinkedin" target="_blank" class="text-gray-400 hover:text-white transition-transform transform hover:scale-110">
-              <i class="fab fa-linkedin text-2xl"></i>
-            </a>
-            <a href="https://twitter.com/yourtwitter" target="_blank" class="text-gray-400 hover:text-white transition-transform transform hover:scale-110">
-              <i class="fab fa-twitter text-2xl"></i>
-            </a>
-          </div>
+        
+        <!-- Contact Us -->
+        <div class="text-center">
+            <h3 class="font-semibold text-gray-800 mb-4">Contact Us</h3>
+            <p class="text-gray-600 mb-2 text-sm">contact@medront.com</p>
+            <p class="text-gray-600 mb-2 text-sm">(+91) 87892 75900</p>
+            <p class="text-gray-600 text-sm">
+                Mira Rd East, Thane,<br>
+                Maharastra - 401107, India
+            </p>
         </div>
-  
-      </div>
-  
-      <!-- Copyright -->
-      <div class="mt-8 text-center text-gray-500 text-sm">
-        © 2025 Dev Dhanak. All rights reserved.
-      </div>
+        
+        <!-- Follow Us -->
+        <div class="flex flex-col justify-center items-center">
+            <h3 class="font-semibold text-gray-800 mb-4">Follow Us</h3>
+            <div class="flex flex-col justify-center items-center space-y-3">
+                <a href="#" class="w-8 h-8 bg-gray-100 rounded flex items-center justify-center text-gray-700 hover:bg-gray-200 transition duration-300">
+                    <Icon name="X"/>
+                </a>
+                <a href="#" class="w-8 h-8 bg-gray-100 rounded flex items-center justify-center text-gray-700 hover:bg-gray-200 transition duration-300">
+                    <Icon name="facebook"/>
+                </a>
+                <a href="#" class="w-8 h-8 bg-gray-100 rounded flex items-center justify-center text-gray-700 hover:bg-gray-200 transition duration-300">
+                    <Icon name="whatsapp"/>
+                </a>
+                <a href="#" class="w-8 h-8 bg-gray-100 rounded flex items-center justify-center text-gray-700 hover:bg-gray-200 transition duration-300">
+                    <Icon name="Linkedin"/>
+                </a>
+            </div>
+        </div>
     </div>
-  </footer>
-  
-  <!-- FontAwesome Icons -->
-  <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
-  
+    
+    <!-- Copyright -->
+    <div class="py-4 text-gray-500 text-sm text-center sm:text-left">
+        All Rights Reserved | Medront Datalabs Private Limited CIN - U62099MH2023PTC404276
+    </div>
+</footer>

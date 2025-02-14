@@ -1,1 +1,0 @@
-import{j as t}from"./index.CMOihDGw.js";import{z as i}from"./index.CmmpOUCB.js";import"./shareReplay.zbqmjNtv.js";import"./_commonjsHelpers.BosuxZz1.js";import"./index.B2cYBrxi.js";import"./resolveEditInfo.XsP3txYs.js";function a(o){return t.jsx(i,{zIndex:o.zIndex,refresh:()=>new Promise(r=>{window.location.reload(),r()})})}export{a as VisualEditingComponent};
