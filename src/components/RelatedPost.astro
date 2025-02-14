@@ -1,0 +1,13 @@
+---
+const {relatedPost} = Astro.props
+---
+<div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+    {relatedPost.map((related) => (
+        <li>
+          <a href={`/post/${related.slug}`} class="text-blue-500 hover:underline">
+            {related.title}
+          </a>
+          <p class="text-sm text-gray-600">{related.author}</p>
+        </li>
+      ))}
+</div>

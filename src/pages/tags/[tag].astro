@@ -1,42 +1,54 @@
 ---
 import { sanityClient } from "sanity:client";
-import Layout from "../../layouts/Layout.astro";
-import Card from "../../components/Card.astro";
-import {unSlugify} from '../../lib/Slugify'
+import { slugify } from "../../lib/Slugify"; // Ensure you have your slugify helper here
+// import type { SanityDocument } from "@sanity/client";
 
-const posts = await sanityClient.fetch(`*[_type == "post"]{
-  "tags": tags[]
-}`);
-
-const allTags = [...new Set(posts.flatMap(post => post.tags || []))];
-
+// Generate static paths based on authors' names slugified
 export async function getStaticPaths() {
-  return allTags.map(tag => ({
-    params: { tag },
+  // Fetch all authors (only the name is needed to generate the slug)
+  const authors = await sanityClient.fetch(`*[_type == "author"]{ name }`);
+  return authors.map((author: { name: string }) => ({
+    params: { slug: slugify(author.name) },
   }));
 }
 
-// Get posts related to a specific tag
-const { tag } = Astro.params;
+// Get the slug parameter from the URL
+const { slug } = Astro.params;
+// console.log("fffff",slug);
 
-const filteredPosts = await sanityClient.fetch(
-  `*[_type == "post" && $tag in tags[]]{
-    title,
-    slug,
-    "mainImage": coalesce(mainImage.asset->url, ""),
-    tags
-  }`,
-  { tag: `${unSlugify(tag)}` }
+
+// Fetch all authors (you might optimize this by storing the slug in the document)
+const authors = await sanityClient.fetch(
+  `*[_type == "author"]{
+    _id,
+    name,
+    bio,
+    "imageUrl": image.asset->url
+  }`
 );
+console.log(authors);
 
-console.log(tag);
 
-console.log(filteredPosts);
+// Find the author whose name slugified matches the URL slug
+// const author = authors.find((a: any) => slugify(a.name) === slug);
+
+// if (!author) {
+//   throw new Error(`Author not found for slug: ${slug}`);
+// }
+
+// Fetch all posts by this author using their _id
+// const posts = await sanityClient.fetch(
+//   `*[_type == "post" && author._ref == $authorId]{
+//     title,
+//     "slug": slug.current,
+//     publishedAt,
+//     "mainImage": mainImage.asset->url,
+//     body,
+//     tags
+//   }`,
+//   { authorId: author._id }
+// );
+// console.log(posts);
+
 ---
-<Layout>
-    <h1 class="text-2xl font-bold">Posts for {tag}</h1>
-    {filteredPosts.length  > 0 ? (<div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
-      {filteredPosts.map((post) => <Card post={post} />)}
-    </div>) : <p>No post available related to this tag</p> }
-    
-</Layout>
+

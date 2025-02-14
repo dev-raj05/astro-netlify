@@ -11,6 +11,36 @@ h2 {
 /* body {
   background-color: #f5f4f4;
 } */
+.share-btn {
+  position: relative;
+  border: none;
+  background: #fff;
+  color: #ff7d7d;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  padding-top: 2.5px;
+  padding-right: 3px;
+  cursor: pointer;
+  z-index: 2;
+}
+.share-options {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  transform-origin: bottom left;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: rgba(15, 15, 15, 0.5);
+  color: #fff;
+  padding: 20px;
+  font-family: "roboto";
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
 p {
   font-size: 1rem;
   margin-bottom: 1rem;
