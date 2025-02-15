@@ -11,9 +11,9 @@ import { Icon } from 'astro-icon/components'
 
         <!-- Left Navigation Links (Hidden on Mobile) -->
         <div class="hidden md:flex items-center gap-10">
-            <a href="/product" class="cursor-pointer transition-transform duration-500 hover:-translate-y-1 hover:scale-105">Product</a>
-            <a href="/Resources" class="cursor-pointer transition-transform duration-500 hover:-translate-y-1 hover:scale-105">Resources</a>
-            <a href="/pricing" class="cursor-pointer transition-transform duration-500 hover:-translate-y-1 hover:scale-105">Pricing</a>
+            <a href="https://booleanmaths.com/" target="_blank" class="cursor-pointer transition-transform duration-500 hover:-translate-y-1 hover:scale-105">Product</a>
+            <a href="https://medium.com/@booleanmaths" target="_blank" class="cursor-pointer transition-transform duration-500 hover:-translate-y-1 hover:scale-105">Resources</a>
+            <a href="https://booleanmaths.com/pricing" target="_blank" class="cursor-pointer transition-transform duration-500 hover:-translate-y-1 hover:scale-105">Pricing</a>
         </div>
 
         <!-- Center Logo -->
@@ -23,8 +23,13 @@ import { Icon } from 'astro-icon/components'
 
         <!-- Right Buttons (Hidden on Mobile) -->
         <div class="hidden md:flex items-center gap-5">
-            <button class="border px-6 py-2 rounded-md cursor-pointer transition-transform duration-500 hover:-translate-y-1 hover:scale-105">Login</button>
-            <button class="border px-6 py-2 rounded-md cursor-pointer transition-transform duration-500 hover:-translate-y-1 hover:scale-105">Book Demo</button>
+            <a href="https://app.booleanmaths.com/login" target="_blank">
+
+                <button class="border px-6 py-2 rounded-md cursor-pointer transition-transform duration-500 hover:-translate-y-1 hover:scale-105">Login</button>
+            </a>
+            <a href="">
+                <button class="border px-6 py-2 rounded-md cursor-pointer transition-transform duration-500 hover:-translate-y-1 hover:scale-105">Book Demo</button>
+            </a>
         </div>
     </div>
 
@@ -32,11 +37,16 @@ import { Icon } from 'astro-icon/components'
     <div id="sidebar" class="fixed top-0 left-0 w-[250px] h-full bg-white shadow-lg p-5 transform -translate-x-full transition-transform duration-300 md:hidden">
         <button id="close-btn" class="text-2xl absolute top-2 right-4">✖</button>
         <div class="flex flex-col items-start gap-4 mt-10">
-            <a href="/product" class="block py-2">Product</a> 
-            <a href="/Resources" class="block py-2">Resources</a>
-            <a href="/pricing" class="block py-2">Pricing</a>
-            <button class="border px-6 py-2 rounded-md w-full">Login</button>
-            <button class="border px-6 py-2 rounded-md w-full">Book Demo</button>
+            <a href="https://booleanmaths.com/" target="_blank" class="block py-2">Product</a> 
+            <a href="https://medium.com/@booleanmaths" target="_blank" class="block py-2">Resources</a>
+            <a href="https://booleanmaths.com/pricing" target="_blank" class="block py-2">Pricing</a>
+            <a href="https://app.booleanmaths.com/login" target="_blank">
+                <button class="border px-6 py-2 rounded-md w-full">Login</button>
+            </a>
+            <a href="https://booleanmaths.com/#booking" target="_blank">
+
+                <button class="border px-6 py-2 rounded-md w-full">Book Demo</button>
+            </a>
         </div>
     </div>
 </nav>
