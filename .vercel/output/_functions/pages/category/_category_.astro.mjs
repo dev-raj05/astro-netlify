@@ -1,11 +1,11 @@
 import { s as sanityClient } from '../../chunks/page-ssr_BP2uGixO.mjs';
-import { c as createComponent, b as createAstro, r as renderTemplate } from '../../chunks/astro/server_BvdISoo7.mjs';
+import { b as createAstro, c as createComponent, r as renderTemplate } from '../../chunks/astro/server_DrWRQmYu.mjs';
 import 'kleur/colors';
 import 'clsx';
 import { s as slugify } from '../../chunks/Slugify_Ta8JJPF6.mjs';
 export { renderers } from '../../renderers.mjs';
 
-const $$Astro = createAstro();
+const $$Astro = createAstro("https://stargazers.club");
 async function getStaticPaths() {
   return allCategories.map((category) => ({
     params: { category }

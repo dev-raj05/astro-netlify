@@ -22,7 +22,7 @@ const { tag } = Astro.params;
 const filteredPosts = await sanityClient.fetch(
   `*[_type == "post" && $tag in tags[]]{
     title,
-    slug,
+    "slug": slug.current,
     "mainImage": coalesce(mainImage.asset->url, ""),
     tags
   }`,

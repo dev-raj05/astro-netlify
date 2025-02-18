@@ -1,4 +1,4 @@
-import { N as NOOP_MIDDLEWARE_HEADER, D as DEFAULT_404_COMPONENT } from './astro/server_BvdISoo7.mjs';
+import { N as NOOP_MIDDLEWARE_HEADER, D as DEFAULT_404_COMPONENT } from './astro/server_DrWRQmYu.mjs';
 import { parse } from 'devalue';
 import { escape } from 'html-escaper';
 
@@ -11,7 +11,7 @@ const NOOP_MIDDLEWARE_FN = async (_ctx, next) => {
 const ACTION_QUERY_PARAMS = {
   actionName: "_action"};
 
-const __vite_import_meta_env__ = {"ASSETS_PREFIX": undefined, "BASE_URL": "/", "DEV": false, "MODE": "production", "PROD": true, "PUBLIC_SANITY_DATASET": "production", "PUBLIC_SANITY_PROJECT_ID": "f9zwkku2", "PUBLIC_SANITY_VISUAL_EDITING_ENABLED": "true", "SITE": undefined, "SSR": true};
+const __vite_import_meta_env__ = {"ASSETS_PREFIX": undefined, "BASE_URL": "/", "DEV": false, "MODE": "production", "PROD": true, "PUBLIC_SANITY_DATASET": "production", "PUBLIC_SANITY_PROJECT_ID": "f9zwkku2", "PUBLIC_SANITY_VISUAL_EDITING_ENABLED": "true", "SITE": "https://stargazers.club", "SSR": true};
 const codeToStatusMap = {
   // Implemented from tRPC error code table
   // https://trpc.io/docs/server/error-handling#error-codes

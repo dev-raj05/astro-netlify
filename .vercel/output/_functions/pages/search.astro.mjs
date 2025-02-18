@@ -1,11 +1,11 @@
 import { s as sanityClient } from '../chunks/page-ssr_BP2uGixO.mjs';
-import { c as createComponent, b as createAstro, r as renderTemplate, d as renderComponent, m as maybeRenderHead, a as addAttribute } from '../chunks/astro/server_BvdISoo7.mjs';
+import { b as createAstro, c as createComponent, r as renderTemplate, d as renderComponent, m as maybeRenderHead, a as addAttribute } from '../chunks/astro/server_DrWRQmYu.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Formatdate_D7PiPWzK.mjs';
-import { $ as $$Card } from '../chunks/Card_I7V9lSdn.mjs';
+import { $ as $$Layout } from '../chunks/Formatdate_DtxABODi.mjs';
+import { $ as $$Card } from '../chunks/Card_B1_HUaeo.mjs';
 export { renderers } from '../renderers.mjs';
 
-const $$Astro = createAstro();
+const $$Astro = createAstro("https://stargazers.club");
 const $$Search = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Search;

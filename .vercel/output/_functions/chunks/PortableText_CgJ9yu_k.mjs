@@ -1,5 +1,5 @@
 import { s as sanityClient } from './page-ssr_BP2uGixO.mjs';
-import { c as createComponent, b as createAstro, r as renderTemplate, m as maybeRenderHead, s as spreadAttributes, h as renderSlot, d as renderComponent, a as addAttribute } from './astro/server_BvdISoo7.mjs';
+import { b as createAstro, c as createComponent, r as renderTemplate, m as maybeRenderHead, s as spreadAttributes, h as renderSlot, d as renderComponent, a as addAttribute } from './astro/server_DrWRQmYu.mjs';
 import 'kleur/colors';
 import { LIST_NEST_MODE_HTML, isPortableTextToolkitList, isPortableTextListItemBlock, isPortableTextToolkitSpan, isPortableTextBlock, isPortableTextToolkitTextNode, nestLists, buildMarksTree } from '@portabletext/toolkit';
 import 'clsx';
@@ -75,7 +75,7 @@ function usePortableText(node) {
   return globalThis[key](node);
 }
 
-const $$Astro$8 = createAstro();
+const $$Astro$8 = createAstro("https://stargazers.club");
 const $$Block = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$8, $$props, $$slots);
   Astro2.self = $$Block;
@@ -91,7 +91,7 @@ const $$HardBreak = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<br>`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/node_modules/astro-portabletext/components/HardBreak.astro", void 0);
 
-const $$Astro$7 = createAstro();
+const $$Astro$7 = createAstro("https://stargazers.club");
 const $$List = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$7, $$props, $$slots);
   Astro2.self = $$List;
@@ -100,7 +100,7 @@ const $$List = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${listItemIs("menu") ? renderTemplate`${maybeRenderHead()}<menu${spreadAttributes(attrs)}>${renderSlot($$result, $$slots["default"])}</menu>` : listItemIs("number") ? renderTemplate`<ol${spreadAttributes(attrs)}>${renderSlot($$result, $$slots["default"])}</ol>` : renderTemplate`<ul${spreadAttributes(attrs)}>${renderSlot($$result, $$slots["default"])}</ul>`}`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/node_modules/astro-portabletext/components/List.astro", void 0);
 
-const $$Astro$6 = createAstro();
+const $$Astro$6 = createAstro("https://stargazers.club");
 const $$ListItem = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$6, $$props, $$slots);
   Astro2.self = $$ListItem;
@@ -108,7 +108,7 @@ const $$ListItem = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<li${spreadAttributes(attrs)}>${renderSlot($$result, $$slots["default"])}</li>`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/node_modules/astro-portabletext/components/ListItem.astro", void 0);
 
-const $$Astro$5 = createAstro();
+const $$Astro$5 = createAstro("https://stargazers.club");
 const $$Mark = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$5, $$props, $$slots);
   Astro2.self = $$Mark;
@@ -120,7 +120,7 @@ const $$Mark = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${markTypeIs("code") ? renderTemplate`${maybeRenderHead()}<code${spreadAttributes(attrs)}>${renderSlot($$result, $$slots["default"])}</code>` : markTypeIs("em") ? renderTemplate`<em${spreadAttributes(attrs)}>${renderSlot($$result, $$slots["default"])}</em>` : markTypeIs("link") ? renderTemplate`<a${addAttribute(node.markDef.href, "href")}${spreadAttributes(attrs)}>${renderSlot($$result, $$slots["default"])}</a>` : markTypeIs("strike-through") ? renderTemplate`<del${spreadAttributes(attrs)}>${renderSlot($$result, $$slots["default"])}</del>` : markTypeIs("strong") ? renderTemplate`<strong${spreadAttributes(attrs)}>${renderSlot($$result, $$slots["default"])}</strong>` : markTypeIs("underline") ? renderTemplate`<span style="text-decoration: underline;"${spreadAttributes(attrs)}>${renderSlot($$result, $$slots["default"])}</span>` : renderTemplate`${renderComponent($$result, "UnknownMarkType", UnknownMarkType, { ...props }, { "default": ($$result2) => renderTemplate`${renderSlot($$result2, $$slots["default"])}` })}`}`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/node_modules/astro-portabletext/components/Mark.astro", void 0);
 
-const $$Astro$4 = createAstro();
+const $$Astro$4 = createAstro("https://stargazers.club");
 const $$Text = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
   Astro2.self = $$Text;
@@ -144,7 +144,7 @@ const $$UnknownMark = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<span data-portabletext-unknown="mark">${renderSlot($$result, $$slots["default"])}</span>`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/node_modules/astro-portabletext/components/UnknownMark.astro", void 0);
 
-const $$Astro$3 = createAstro();
+const $$Astro$3 = createAstro("https://stargazers.club");
 const $$UnknownType = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
   Astro2.self = $$UnknownType;
@@ -153,7 +153,7 @@ const $$UnknownType = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${isInline ? renderTemplate`${maybeRenderHead()}<span style="display:none" data-portabletext-unknown="type">${warning}</span>` : renderTemplate`<div style="display:none" data-portabletext-unknown="type">${warning}</div>`}`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/node_modules/astro-portabletext/components/UnknownType.astro", void 0);
 
-const $$Astro$2 = createAstro();
+const $$Astro$2 = createAstro("https://stargazers.club");
 const $$PortableText$1 = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
   Astro2.self = $$PortableText$1;
@@ -403,7 +403,7 @@ function urlForImage(source) {
   return imageBuilder.image(source);
 }
 
-const $$Astro$1 = createAstro();
+const $$Astro$1 = createAstro("https://stargazers.club");
 const $$PortableTextImage = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$PortableTextImage;
@@ -413,7 +413,7 @@ const $$PortableTextImage = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<picture> <source${addAttribute(webpUrl, "srcset")} type="image/webp"> <img class="h-[30%] w-full m-auto"${addAttribute(url, "src")}${addAttribute(alt, "alt")}> </picture>`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/components/PortableTextImage.astro", void 0);
 
-const $$Astro = createAstro();
+const $$Astro = createAstro("https://stargazers.club");
 const $$PortableText = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$PortableText;

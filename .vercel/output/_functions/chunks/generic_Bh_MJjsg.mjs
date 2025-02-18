@@ -1,5 +1,5 @@
 import { i as isRemotePath, j as joinPaths } from './path_BuZodYwm.mjs';
-import { A as AstroError, E as ExpectedImage, L as LocalImageUsedWrongly, i as MissingImageDimension, U as UnsupportedImageFormat, I as IncompatibleDescriptorOptions, j as UnsupportedImageConversion, k as NoImageMetadata, l as FailedToFetchRemoteImageDimensions, n as ExpectedImageOptions, o as ExpectedNotESMImage, p as InvalidImageService, t as toStyleString, c as createComponent, b as createAstro, q as ImageMissingAlt, r as renderTemplate, m as maybeRenderHead, a as addAttribute, s as spreadAttributes } from './astro/server_BvdISoo7.mjs';
+import { A as AstroError, E as ExpectedImage, L as LocalImageUsedWrongly, i as MissingImageDimension, U as UnsupportedImageFormat, I as IncompatibleDescriptorOptions, j as UnsupportedImageConversion, k as NoImageMetadata, l as FailedToFetchRemoteImageDimensions, n as ExpectedImageOptions, o as ExpectedNotESMImage, p as InvalidImageService, t as toStyleString, b as createAstro, c as createComponent, q as ImageMissingAlt, r as renderTemplate, m as maybeRenderHead, a as addAttribute, s as spreadAttributes } from './astro/server_DrWRQmYu.mjs';
 import 'clsx';
 import * as mime from 'mrmime';
 import '../renderers.mjs';
@@ -1244,7 +1244,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp_DDkojbUE.mjs'
+      './sharp_DcaBhi_v.mjs'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
@@ -1407,7 +1407,7 @@ function applyResponsiveAttributes({
   return attributes;
 }
 
-const $$Astro$1 = createAstro();
+const $$Astro$1 = createAstro("https://stargazers.club");
 const $$Image = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$Image;
@@ -1442,7 +1442,7 @@ const $$Image = createComponent(async ($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<img${addAttribute(image.src, "src")}${spreadAttributes(attributes)}${addAttribute(className, "class")}>`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/node_modules/astro/components/Image.astro", void 0);
 
-const $$Astro = createAstro();
+const $$Astro = createAstro("https://stargazers.club");
 const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Picture;

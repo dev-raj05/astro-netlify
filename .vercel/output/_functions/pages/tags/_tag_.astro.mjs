@@ -1,12 +1,12 @@
 import { s as sanityClient } from '../../chunks/page-ssr_BP2uGixO.mjs';
-import { c as createComponent, b as createAstro, r as renderTemplate, d as renderComponent, m as maybeRenderHead } from '../../chunks/astro/server_BvdISoo7.mjs';
+import { b as createAstro, c as createComponent, r as renderTemplate, d as renderComponent, m as maybeRenderHead } from '../../chunks/astro/server_DrWRQmYu.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../../chunks/Formatdate_D7PiPWzK.mjs';
-import { $ as $$Card } from '../../chunks/Card_I7V9lSdn.mjs';
+import { $ as $$Layout } from '../../chunks/Formatdate_DtxABODi.mjs';
+import { $ as $$Card } from '../../chunks/Card_B1_HUaeo.mjs';
 import { u as unSlugify } from '../../chunks/Slugify_Ta8JJPF6.mjs';
 export { renderers } from '../../renderers.mjs';
 
-const $$Astro = createAstro();
+const $$Astro = createAstro("https://stargazers.club");
 async function getStaticPaths() {
   return allTags.map((tag) => ({
     params: { tag }
@@ -23,7 +23,7 @@ const $$tag = createComponent(async ($$result, $$props, $$slots) => {
   const filteredPosts = await sanityClient.fetch(
     `*[_type == "post" && $tag in tags[]]{
     title,
-    slug,
+    "slug": slug.current,
     "mainImage": coalesce(mainImage.asset->url, ""),
     tags
   }`,

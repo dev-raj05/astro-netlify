@@ -1,10 +1,10 @@
 import '../../chunks/page-ssr_BP2uGixO.mjs';
-import { c as createComponent, b as createAstro, r as renderTemplate, a as addAttribute, f as renderHead, d as renderComponent } from '../../chunks/astro/server_BvdISoo7.mjs';
+import { b as createAstro, c as createComponent, r as renderTemplate, a as addAttribute, f as renderHead, d as renderComponent } from '../../chunks/astro/server_DrWRQmYu.mjs';
 import 'kleur/colors';
 /* empty css                                           */
 export { renderers } from '../../renderers.mjs';
 
-const $$Astro = createAstro();
+const $$Astro = createAstro("https://stargazers.club");
 async function getStaticPaths() {
   return [{ params: { path: "admin" } }];
 }
