@@ -6,6 +6,7 @@ import Card from '../components/Card.astro'
 import "../styles/global.css";
 import Subscribe from '../components/Subscribe.astro';
 import Header from '../components/Header.astro';
+import Cta from '../components/Cta.astro';
 
 
 // const today = new Date();
@@ -64,5 +65,6 @@ const posts = await sanityClient.fetch(Query);
 				{posts.slice(2).map((post) => <Card post={post} />)}
 			</div>
 		</div>
+		<!-- <Cta/> -->
 		<Subscribe/>
 </Layout>

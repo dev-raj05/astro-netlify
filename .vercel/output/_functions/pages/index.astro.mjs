@@ -1,20 +1,17 @@
 import { s as sanityClient } from '../chunks/page-ssr_BP2uGixO.mjs';
 import { c as createComponent, r as renderTemplate, m as maybeRenderHead, d as renderComponent } from '../chunks/astro/server_BvdISoo7.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Formatdate_4gqrYB8F.mjs';
-import { $ as $$Card } from '../chunks/Card_C_Pbu5os.mjs';
+import { $ as $$Layout } from '../chunks/Formatdate_LN7BU_Tt.mjs';
+import { $ as $$Card } from '../chunks/Card_CCmDBRAz.mjs';
 /* empty css                                    */
 import { $ as $$Subscribe } from '../chunks/Subscribe_lbac5rj6.mjs';
 import 'clsx';
 export { renderers } from '../renderers.mjs';
 
 const $$Header = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<section class="w-full py-16 md:py-10"> <div class="max-w-6xl mx-auto text-center bg-white shadow-sm border border-gray-200 rounded-2xl p-16 md:p-24"> <p class="text-gray-500 font-medium text-sm md:text-base">Booleanmaths’s Blog</p> <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mt-4">
-Stay Updated with our latest <br> <span class="block">ongoings.</span> </h1> <p class="text-gray-600 text-sm md:text-lg mt-6 leading-relaxed">
-Boolean Maths empowers eCommerce brands to harness data-driven insights, enabling 
-          smarter marketing strategies, optimizing ad spend, and driving sustainable growth 
-          through informed decision-making.
-</p> </div> </section>`;
+  return renderTemplate`${maybeRenderHead()}<section class="w-full py-10"> <!-- <div class=" bg-white shadow-sm border border-gray-200 rounded-2xl p-5 ">
+    </div> --> <div class="max-w-6xl mx-auto bg-white"> <p class="text-black font-medium text-sm mt-5">Booleanmaths’s Blog</p> <h1 class="text-3xl md:text-5xl font-bold text-black mt-2 leading-tight">
+Stay Updated with our latest <br> <span class="block mb-10">ongoings.</span> </h1> </div> </section>`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/components/Header.astro", void 0);
 
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
@@ -31,7 +28,7 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   const posts = await sanityClient.fetch(Query);
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Header", $$Header, {})} ${maybeRenderHead()}<div class="grid grid-cols-1 gap-5"> <!-- <div class="col-span-1 mb-4">
 				{posts.length > 0 && <HeroCard post={posts[0]} />}
-			</div> --> <div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2"> ${posts.slice(0, 2).map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "post": post })}`)} </div> <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"> ${posts.slice(2).map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "post": post })}`)} </div> </div> ${renderComponent($$result2, "Subscribe", $$Subscribe, {})} ` })}`;
+			</div> --> <div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2"> ${posts.slice(0, 2).map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "post": post })}`)} </div> <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"> ${posts.slice(2).map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "post": post })}`)} </div> </div>  ${renderComponent($$result2, "Subscribe", $$Subscribe, {})} ` })}`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/pages/index.astro", void 0);
 
 const $$file = "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/pages/index.astro";

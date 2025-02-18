@@ -3,8 +3,8 @@ import { c as createComponent, b as createAstro, r as renderTemplate, d as rende
 import 'kleur/colors';
 import { l as loadQuery, $ as $$PortableText } from '../../chunks/PortableText_CG9w_4Sw.mjs';
 import { u as unSlugify } from '../../chunks/Slugify_Ta8JJPF6.mjs';
-import { $ as $$Layout } from '../../chunks/Formatdate_4gqrYB8F.mjs';
-import { $ as $$Card } from '../../chunks/Card_C_Pbu5os.mjs';
+import { $ as $$Layout } from '../../chunks/Formatdate_LN7BU_Tt.mjs';
+import { $ as $$Card } from '../../chunks/Card_CCmDBRAz.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro();
