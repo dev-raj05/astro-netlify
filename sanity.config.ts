@@ -16,7 +16,7 @@ export default defineConfig({
     structureTool(),
     visionTool(),
     presentationTool({
-      resolve,
+      // resolve,
       // previewUrl: location.origin,
       previewUrl: {
         origin: "http://localhost:4321",

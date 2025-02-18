@@ -26,7 +26,7 @@ export default defineConfig({
       studioBasePath: "/studio",
       visualEditing: true,
       stega: {
-        // enabled: false,
+        enabled: false,
         studioUrl: "/studio",
       },
     }),

@@ -1,23 +1,21 @@
-import { s as sanityClient } from '../chunks/page-ssr_FyCvyDbI.mjs';
-import { c as createComponent, a as createAstro, r as renderTemplate, m as maybeRenderHead, b as addAttribute, d as renderComponent } from '../chunks/astro/server_BDnHfdZN.mjs';
+import { s as sanityClient } from '../chunks/page-ssr_BP2uGixO.mjs';
+import { c as createComponent, r as renderTemplate, m as maybeRenderHead, d as renderComponent } from '../chunks/astro/server_BvdISoo7.mjs';
 import 'kleur/colors';
+import { $ as $$Layout } from '../chunks/Formatdate_4gqrYB8F.mjs';
+import { $ as $$Card } from '../chunks/Card_C_Pbu5os.mjs';
+/* empty css                                    */
+import { $ as $$Subscribe } from '../chunks/Subscribe_lbac5rj6.mjs';
 import 'clsx';
-import { f as formatDate, $ as $$Layout } from '../chunks/Formatdate_Dg-7c8bM.mjs';
-import { $ as $$Card } from '../chunks/Card_CLyUDPvn.mjs';
-/* empty css                                 */
 export { renderers } from '../renderers.mjs';
 
-const $$Astro = createAstro();
-const $$HeroCard = createComponent(($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
-  Astro2.self = $$HeroCard;
-  const { post } = Astro2.props;
-  return renderTemplate`${maybeRenderHead()}<div class="card overflow-hidden rounded-xl  bg-base-100 shadow-xl transition-transform duration-500 hover:-translate-y-1 hover:scale-105"> <a${addAttribute(`/post/${post.slug}`, "href")} class="block lg:flex">  <div class="lg:w-2/3"> <img class="w-full h-full object-cover"${addAttribute(post.mainImage, "src")}${addAttribute(post.alt, "alt")}> </div>  <div class="card-body flex flex-col justify-between p-6 lg:w-1/3">  <div class="flex flex-col flex-wrap gap-2 text-xs"> <div class="flex flex-wrap gap-2 text-xs"> ${post.tags.map((tag) => renderTemplate`<span class="badge badge-outline border border-black px-3 py-1"> ${tag} </span>`)} </div> <!-- <p class="text-xs text-gray-500">{post.publishedAt}</p> --> <p class="text-xs text-gray-500">${formatDate(post.publishedAt)}</p> </div>   <h3 class="card-title text-lg font-semibold">${post.title}</h3>  <p class="text-sm text-gray-600">${post.description}</p> </div> </a> </div>`;
-}, "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/components/HeroCard.astro", void 0);
-
-const $$Subscribe = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<div class="mb-10 mt-10"> <iframe src="https://booleanmaths.substack.com/embed" width="100%" height="500"${addAttribute({ background: "gray", "boxShadow": "none" }, "style")} scrolling="no"></iframe> </div> <!-- class="bg-gray-300  shadow-none" -->`;
-}, "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/components/Subscribe.astro", void 0);
+const $$Header = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${maybeRenderHead()}<section class="w-full py-16 md:py-10"> <div class="max-w-6xl mx-auto text-center bg-white shadow-sm border border-gray-200 rounded-2xl p-16 md:p-24"> <p class="text-gray-500 font-medium text-sm md:text-base">Booleanmaths’s Blog</p> <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mt-4">
+Stay Updated with our latest <br> <span class="block">ongoings.</span> </h1> <p class="text-gray-600 text-sm md:text-lg mt-6 leading-relaxed">
+Boolean Maths empowers eCommerce brands to harness data-driven insights, enabling 
+          smarter marketing strategies, optimizing ad spend, and driving sustainable growth 
+          through informed decision-making.
+</p> </div> </section>`;
+}, "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/components/Header.astro", void 0);
 
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   const Query = `*[_type == "post"]{
@@ -31,7 +29,9 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
 	category
 }`;
   const posts = await sanityClient.fetch(Query);
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="grid grid-cols-1 gap-5"> <div class="col-span-1 mb-4"> ${posts.length > 0 && renderTemplate`${renderComponent($$result2, "HeroCard", $$HeroCard, { "post": posts[0] })}`} </div> <div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2"> ${posts.slice(1, 3).map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "post": post })}`)} </div> <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"> ${posts.slice(3).map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "post": post })}`)} </div> </div> ${renderComponent($$result2, "Subscribe", $$Subscribe, {})} ` })}`;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Header", $$Header, {})} ${maybeRenderHead()}<div class="grid grid-cols-1 gap-5"> <!-- <div class="col-span-1 mb-4">
+				{posts.length > 0 && <HeroCard post={posts[0]} />}
+			</div> --> <div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2"> ${posts.slice(0, 2).map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "post": post })}`)} </div> <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"> ${posts.slice(2).map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "post": post })}`)} </div> </div> ${renderComponent($$result2, "Subscribe", $$Subscribe, {})} ` })}`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/pages/index.astro", void 0);
 
 const $$file = "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/pages/index.astro";
