@@ -63,6 +63,33 @@ h2 {
   margin-bottom: 1rem;
   color: #444;
 }
+ol {
+  counter-reset: item;
+  list-style: none; /* Remove default numbering */
+  padding-left: 0;
+  margin-left: 0;
+}
+/* Style each list item */
+ol li {
+  counter-increment: item;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 1.2em; /* Space for the generated number */
+}
+
+/* Generate the hierarchical numbering */
+ol li::before {
+  content: counters(item, ".") ". ";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Optional: Indent nested ordered lists */
+ol li ol {
+  margin-top: 4px;
+  margin-left: 1.5em;
+}
 
 /* img {
   border-radius: 1rem;

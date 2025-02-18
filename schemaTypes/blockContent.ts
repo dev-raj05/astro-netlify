@@ -18,7 +18,10 @@ export const blockContentType = defineType({
         { title: "Large Text", value: "large" },
         { title: "Quote", value: "blockquote" },
       ],
-      lists: [{ title: "Bullet", value: "bullet" }],
+      lists: [
+        { title: "Bullet", value: "bullet" },
+        { title: "Numbered", value: "number" },
+      ],
       marks: {
         decorators: [
           { title: "Strong", value: "strong" },
@@ -32,8 +35,8 @@ export const blockContentType = defineType({
             type: "object",
             fields: [{ title: "URL", name: "href", type: "url" }],
           },
+          // Uncomment below to add a custom font size annotation if needed
           // {
-          //   // ✅ Custom Font Size Annotation
           //   title: "Font Size",
           //   name: "fontSize",
           //   type: "object",
