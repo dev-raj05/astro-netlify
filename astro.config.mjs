@@ -36,6 +36,22 @@ export default defineConfig({
     icon(),
     sitemap(),
   ],
+  vite: {
+    base: "/",
+    server: {
+      port: 5173,
+      strictPort: true,
+      host: true,
+      allowedHosts: ["devserver.booleanmaths.com"],
+      watch: {
+        usePolling: true,
+      },
+      origin: "http://127.0.0.1:4321",
+    },
+    optimizeDeps: {
+      exclude: ["node_modules/.cache"],
+    },
+  },
   output: "server",
   adapter: vercel(),
 

@@ -1,8 +1,8 @@
 import { s as sanityClient } from '../../chunks/page-ssr_BP2uGixO.mjs';
 import { b as createAstro, c as createComponent, r as renderTemplate, e as renderComponent, m as maybeRenderHead } from '../../chunks/astro/server_Bt2qJKtQ.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../../chunks/Formatdate_DET5F-QR.mjs';
-import { $ as $$Card } from '../../chunks/Card_D8fKomDc.mjs';
+import { $ as $$Layout } from '../../chunks/Formatdate_O2XX_51R.mjs';
+import { $ as $$Card } from '../../chunks/Card_Cj4JZELh.mjs';
 import { u as unSlugify } from '../../chunks/Slugify_Ta8JJPF6.mjs';
 export { renderers } from '../../renderers.mjs';
 

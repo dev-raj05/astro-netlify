@@ -1,7 +1,7 @@
 import { b as createAstro, c as createComponent, r as renderTemplate, m as maybeRenderHead, a as addAttribute } from './astro/server_Bt2qJKtQ.mjs';
 import 'kleur/colors';
 import 'clsx';
-import { f as formatDate } from './Formatdate_DET5F-QR.mjs';
+import { f as formatDate } from './Formatdate_O2XX_51R.mjs';
 
 const $$Astro = createAstro("https://stargazers.club");
 const $$Card = createComponent(($$result, $$props, $$slots) => {

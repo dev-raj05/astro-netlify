@@ -3,8 +3,8 @@ import { b as createAstro, c as createComponent, r as renderTemplate, e as rende
 import 'kleur/colors';
 import { l as loadQuery, $ as $$PortableText } from '../../chunks/PortableText_DppUJrqO.mjs';
 import { u as unSlugify } from '../../chunks/Slugify_Ta8JJPF6.mjs';
-import { $ as $$Layout } from '../../chunks/Formatdate_DET5F-QR.mjs';
-import { $ as $$Card } from '../../chunks/Card_D8fKomDc.mjs';
+import { $ as $$Layout } from '../../chunks/Formatdate_O2XX_51R.mjs';
+import { $ as $$Card } from '../../chunks/Card_Cj4JZELh.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro("https://stargazers.club");
