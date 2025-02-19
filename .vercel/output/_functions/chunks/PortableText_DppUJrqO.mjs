@@ -1,5 +1,5 @@
 import { s as sanityClient } from './page-ssr_BP2uGixO.mjs';
-import { b as createAstro, c as createComponent, r as renderTemplate, m as maybeRenderHead, s as spreadAttributes, h as renderSlot, d as renderComponent, a as addAttribute } from './astro/server_DrWRQmYu.mjs';
+import { b as createAstro, c as createComponent, r as renderTemplate, m as maybeRenderHead, s as spreadAttributes, h as renderSlot, e as renderComponent, a as addAttribute } from './astro/server_Bt2qJKtQ.mjs';
 import 'kleur/colors';
 import { LIST_NEST_MODE_HTML, isPortableTextToolkitList, isPortableTextListItemBlock, isPortableTextToolkitSpan, isPortableTextBlock, isPortableTextToolkitTextNode, nestLists, buildMarksTree } from '@portabletext/toolkit';
 import 'clsx';

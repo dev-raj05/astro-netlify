@@ -20,6 +20,10 @@
 			"dest": "_render"
 		},
 		{
+			"src": "^/404/?$",
+			"dest": "_render"
+		},
+		{
 			"src": "^/author/([^/]+?)/?$",
 			"dest": "_render"
 		},
@@ -29,6 +33,10 @@
 		},
 		{
 			"src": "^/post(?:/(.*?))?/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/robots\\.txt/?$",
 			"dest": "_render"
 		},
 		{
@@ -46,6 +54,11 @@
 		{
 			"src": "^/$",
 			"dest": "_render"
+		},
+		{
+			"src": "^/.*$",
+			"dest": "_render",
+			"status": 404
 		}
 	]
 }

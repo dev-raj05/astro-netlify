@@ -1,5 +1,5 @@
 import { s as sanityClient } from '../../chunks/page-ssr_BP2uGixO.mjs';
-import { b as createAstro, c as createComponent, r as renderTemplate } from '../../chunks/astro/server_DrWRQmYu.mjs';
+import { b as createAstro, c as createComponent, r as renderTemplate } from '../../chunks/astro/server_Bt2qJKtQ.mjs';
 import 'kleur/colors';
 import 'clsx';
 import { s as slugify } from '../../chunks/Slugify_Ta8JJPF6.mjs';

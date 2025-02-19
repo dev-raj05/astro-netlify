@@ -76,7 +76,7 @@ const { data: post } = await loadQuery({
 console.log("Fetched Post Data:", post);
 // console.log("Fetched Post Data:", post.author);
 ---
-<Layout>
+<Layout title={post.title} description={"Sigle post"}>
 
   <main class="px-4 md:px-10 lg:px-20 py-10 max-w-4xl mx-auto mt-5">
     <article class="prose mx-auto dark:prose-invert text-center w-full">

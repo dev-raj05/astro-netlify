@@ -1,28 +1,33 @@
 import { s as sanityClient } from '../../chunks/page-ssr_BP2uGixO.mjs';
-import { b as createAstro, c as createComponent, r as renderTemplate, d as renderComponent, m as maybeRenderHead, a as addAttribute } from '../../chunks/astro/server_DrWRQmYu.mjs';
+import { b as createAstro, c as createComponent, r as renderTemplate, e as renderComponent, m as maybeRenderHead, a as addAttribute } from '../../chunks/astro/server_Bt2qJKtQ.mjs';
 import 'kleur/colors';
-import { l as loadQuery, $ as $$PortableText } from '../../chunks/PortableText_CgJ9yu_k.mjs';
+import { l as loadQuery, $ as $$PortableText } from '../../chunks/PortableText_DppUJrqO.mjs';
 import { u as unSlugify } from '../../chunks/Slugify_Ta8JJPF6.mjs';
-import { $ as $$Layout } from '../../chunks/Formatdate_DtxABODi.mjs';
-import { $ as $$Card } from '../../chunks/Card_B1_HUaeo.mjs';
+import { $ as $$Layout } from '../../chunks/Formatdate_DET5F-QR.mjs';
+import { $ as $$Card } from '../../chunks/Card_D8fKomDc.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro("https://stargazers.club");
 async function getStaticPaths() {
   const { data: posts } = await loadQuery({
-    query: `*[_type == "post"]`
+    query: `*[_type == "post"]{
+      author->{
+        "slug": slug.current
+      }
+    }`
   });
-  return posts.map(({ author }) => ({
-    params: {
-      author: author.title
-    }
+  const uniqueAuthors = Array.from(
+    new Set(posts.map(({ author }) => author?.slug).filter(Boolean))
+  );
+  return uniqueAuthors.map((slug) => ({
+    params: { author: slug }
   }));
 }
 const $$author = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$author;
   const { author } = Astro2.params;
-  const realName = unSlugify(author);
+  unSlugify(author);
   const authorData = await sanityClient.fetch(
     `*[_type == "author" && slug.current == $author][0]{
     _id,
@@ -32,19 +37,22 @@ const $$author = createComponent(async ($$result, $$props, $$slots) => {
   }`,
     { author }
   );
-  console.log(authorData);
+  console.log("Author Data:", authorData);
+  if (!authorData) {
+    throw new Error("Author not found");
+  }
   const authorPosts = await sanityClient.fetch(
-    `*[_type == "post" && author->name == $author]{
+    `*[_type == "post" && author._ref == $authorId]{
     _id,
     title,
-    "slug": slug.current,
+    slug,
     "mainImage": mainImage.asset->url,
     publishedAt
   }`,
-    { author: realName }
+    { authorId: authorData._id }
   );
-  console.log("sssssssssss", authorPosts);
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, {}, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="max-w-4xl mx-auto px-6"> <!-- Author Profile Section --> <div class="flex flex-col items-center text-center mt-10"> ${authorData?.imageUrl ? renderTemplate`<img${addAttribute(authorData.imageUrl, "src")}${addAttribute(authorData.name, "alt")} class="w-20 h-20 md:w-30 md:h-30 rounded-full shadow-lg ">` : renderTemplate`<img${addAttribute("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", "src")}${addAttribute(authorData.name, "alt")} class="w-20 h-20 md:w-30 md:h-30 rounded-full shadow-lg">`} <h1 class="text-3xl font-bold mt-4">${authorData.name}</h1> <p class="text-gray-500">${renderComponent($$result2, "PortableText", $$PortableText, { "portableText": authorData.bio })}</p> </div> <!-- Posts Section --> <h2 class="text-2xl font-bold mt-4 mb-4 text-center">Posts</h2> ${authorPosts.length > 0 ? renderTemplate`<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10"> ${authorPosts.map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "post": post })}`)} </div>` : renderTemplate`<p class="text-center text-gray-500">No posts available for this author.</p>`} </div> ` })}`;
+  console.log("Author Posts:", authorPosts);
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Author", "description": "Author page" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="max-w-4xl mx-auto px-6"> <!-- Author Profile Section --> <div class="flex flex-col items-center text-center mt-10"> ${authorData?.imageUrl ? renderTemplate`<img${addAttribute(authorData.imageUrl, "src")}${addAttribute(authorData.name, "alt")} class="w-20 h-20 md:w-30 md:h-30 rounded-full shadow-lg ">` : renderTemplate`<img${addAttribute("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", "src")}${addAttribute(authorData.name, "alt")} class="w-20 h-20 md:w-30 md:h-30 rounded-full shadow-lg">`} <h1 class="text-3xl font-bold mt-4">${authorData.name}</h1> <p class="text-gray-500">${renderComponent($$result2, "PortableText", $$PortableText, { "portableText": authorData.bio })}</p> </div> <!-- Posts Section --> <h2 class="text-2xl font-bold mt-4 mb-4 text-center">Posts</h2> ${authorPosts.length > 0 ? renderTemplate`<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10"> ${authorPosts.map((post) => renderTemplate`${renderComponent($$result2, "Card", $$Card, { "post": post })}`)} </div>` : renderTemplate`<p class="text-center text-gray-500">No posts available for this author.</p>`} </div> ` })}`;
 }, "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/pages/author/[author].astro", void 0);
 
 const $$file = "C:/Users/User/OneDrive/Desktop/New/venv-astro/src/pages/author/[author].astro";

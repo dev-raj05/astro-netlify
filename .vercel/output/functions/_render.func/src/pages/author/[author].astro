@@ -9,19 +9,26 @@ import PortableText from "../../components/PortableText.astro";
 
 export async function getStaticPaths() {
   const { data: posts } = await loadQuery<SanityDocument[]>({
-    query: `*[_type == "post"]`,
+    query: `*[_type == "post"]{
+      author->{
+        "slug": slug.current
+      }
+    }`,
   });
 
-  return posts.map(({ author }) => ({
-    params: {
-      author: author.title,
-    },
+  const uniqueAuthors = Array.from(
+    new Set(posts.map(({ author }) => author?.slug).filter(Boolean))
+  );
+
+  return uniqueAuthors.map((slug) => ({
+    params: { author: slug },
   }));
 }
 
 const { author } = Astro.params;
 const realName = unSlugify(author);
 
+// Fetch author details
 const authorData = await sanityClient.fetch(
   `*[_type == "author" && slug.current == $author][0]{
     _id,
@@ -32,45 +39,49 @@ const authorData = await sanityClient.fetch(
   { author }
 );
 
-console.log(authorData);
+console.log("Author Data:", authorData);
 
+if (!authorData) {
+  throw new Error("Author not found");
+}
 
+// Fetch posts using author's _id instead of author->name
 const authorPosts = await sanityClient.fetch(
-  `*[_type == "post" && author->name == $author]{
+  `*[_type == "post" && author._ref == $authorId]{
     _id,
     title,
-    "slug": slug.current,
+    slug,
     "mainImage": mainImage.asset->url,
     publishedAt
   }`,
-  { author: realName }
+  { authorId: authorData._id }
 );
-console.log("sssssssssss",authorPosts);
+
+console.log("Author Posts:", authorPosts);
+
+
+// console.log("hhhhhhhhhhh",authorPosts);
 
 ---
 
-<Layout>
+<Layout title="Author" description="Author page">
   <div class="max-w-4xl mx-auto px-6">
     <!-- Author Profile Section -->
-
-    
-
-      <div class="flex flex-col items-center text-center mt-10">
-        {authorData?.imageUrl  ? (<img 
+    <div class="flex flex-col items-center text-center mt-10">
+      {authorData?.imageUrl  ? (<img 
         src={authorData.imageUrl} 
         alt={authorData.name} 
         class="w-20 h-20 md:w-30 md:h-30 rounded-full shadow-lg "
-        />) : (
-          <img 
+      />) : (
+      <img 
           src={"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} 
           alt={authorData.name} 
           class="w-20 h-20 md:w-30 md:h-30 rounded-full shadow-lg"
-          />
-        )}
+        />
+      )}
       <h1 class="text-3xl font-bold mt-4">{authorData.name}</h1>
       <p class="text-gray-500"><PortableText portableText={authorData.bio} /></p>
     </div>
-  
 
     <!-- Posts Section -->
     <h2 class="text-2xl font-bold mt-4 mb-4 text-center">Posts</h2>
