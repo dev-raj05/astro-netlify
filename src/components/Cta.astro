@@ -1,14 +1,36 @@
-<section class="w-full py-10 flex flex-col items-center text-center mb-5">
-    <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 border-t border-gray-200 py-10 text-center sm:text-left"/>
-    <h2 class="text-xl md:text-3xl font-semibold text-black leading-snug">
-      Check what Booleanmaths <br class="hidden md:block" />
-      has to offer.
-    </h2>
-    <a href="https://booleanmaths.com/" target="_blank">
+<section class="relative w-full min-h-[300px] py-16 flex flex-col items-center justify-center text-center">
+  <!-- Grid Background -->
+  <!-- background-color: rgb(243, 243, 243); -->
+  <div
+    class="absolute inset-0"
+    style="
+      /* Two perpendicular gradients for the grid lines */
+      background-image:
+        linear-gradient(to right, #aba5a5 1px, transparent 1px),
+        linear-gradient(to bottom, #aba5a5 1px, transparent 1px);
+      background-repeat: repeat;
+      /* Size for 5 columns x 2 rows */
+      background-size: 20% 50%;
+      /* Shift the grid so it doesn't start at the exact left/right edges */
+      background-position: 10% 0;
+    "
+  ></div>
 
-      <button class="mt-1 px-6 py-2 border border-black text-black text-sm md:text-base font-medium rounded-lg hover:bg-black hover:text-white transition">
+  <!-- Content (above the background) -->
+  <div class="relative z-10 max-w-screen-lg mx-auto px-4">
+    <h1 class="text-3xl md:text-5xl font-semibold text-black leading-snug mb-3">
+      Check what Booleanmaths 
+      <span class="block">
+        has to offer!
+      </span>
+    </h1>
+    <a href="https://booleanmaths.com/" target="_blank" rel="noopener noreferrer">
+      <button
+        class="px-6 py-3 border border-black text-black font-medium rounded-lg
+               hover:bg-black hover:text-white transition-colors"
+      >
         Go to Booleanmaths
       </button>
     </a>
-  </section>
-  
+  </div>
+</section>

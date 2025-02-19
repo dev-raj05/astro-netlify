@@ -52,7 +52,8 @@ const authorPosts = await sanityClient.fetch(
     title,
     slug,
     "mainImage": mainImage.asset->url,
-    publishedAt
+    publishedAt,
+    tags
   }`,
   { authorId: authorData._id }
 );

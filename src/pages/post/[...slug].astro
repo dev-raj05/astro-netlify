@@ -95,7 +95,7 @@ console.log("Fetched Post Data:", post);
       <!-- Tags -->
       <div class="flex flex-wrap justify-center gap-3 mt-7">
         {post.tags.map((tag) => (
-          <span class="px-3 py-1 text-sm font-medium badge badge-outline border border-black shadow-md hover:scale-105 transition">
+          <span class="badge badge-outline k px-3 py-1 rounded-full bg-[#F2F2F2] hover:scale-105 transition">
             <a href={`/tags/${slugify(tag)}`} class="">{tag}</a>
             
           </span>
