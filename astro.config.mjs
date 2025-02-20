@@ -8,13 +8,13 @@ import preact from "@astrojs/preact";
 import { loadEnv } from "vite";
 import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
+
 const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
   process.env.NODE_ENV,
   process.cwd(),
   ""
 );
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://stargazers.club",
   integrations: [
@@ -38,10 +38,12 @@ export default defineConfig({
   vite: {
     base: "/",
     server: {
-      port: 5173,
+      port: 4321,
       strictPort: true,
       host: true,
-      allowedHosts: ["devserver.booleanmaths.com"],
+      allowedHosts: [
+        "devserver.booleanmaths.com,blogdev.booleanmaths.com,blogdevback.booleanmaths.com",
+      ],
       watch: {
         usePolling: true,
       },
@@ -50,13 +52,10 @@ export default defineConfig({
     optimizeDeps: {
       exclude: ["node_modules/.cache"],
     },
+    plugins: [tailwindcss()],
   },
   output: "server",
   adapter: vercel(),
-
-  vite: {
-    plugins: [tailwindcss()],
-  },
   devToolbar: {
     enabled: false,
   },

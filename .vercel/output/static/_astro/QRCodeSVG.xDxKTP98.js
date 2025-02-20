@@ -1,4 +1,4 @@
-import{j as C}from"./index.m_8SQ_Iu.js";import{r as p}from"./index.B7XohNAo.js";import{s as P}from"./studio-component.D7Fjld-9.js";import"./preload-helper.CLcXU_4U.js";import"./client.iDfSejvz.js";/**
+import{j as C}from"./index.m_8SQ_Iu.js";import{r as p}from"./index.B7XohNAo.js";import{s as P}from"./studio-component.CZiGeRZJ.js";import"./preload-helper.CLcXU_4U.js";import"./client.iDfSejvz.js";/**
  * \@license QR Code generator library (TypeScript)
  * Copyright (c) Project Nayuki.
  * SPDX-License-Identifier: MIT
