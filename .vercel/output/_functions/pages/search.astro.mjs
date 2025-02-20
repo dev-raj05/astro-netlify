@@ -1,8 +1,8 @@
 import { s as sanityClient } from '../chunks/page-ssr_BP2uGixO.mjs';
 import { b as createAstro, c as createComponent, r as renderTemplate, e as renderComponent, m as maybeRenderHead, a as addAttribute } from '../chunks/astro/server_Bt2qJKtQ.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Formatdate_O2XX_51R.mjs';
-import { $ as $$Card } from '../chunks/Card_Cj4JZELh.mjs';
+import { $ as $$Layout } from '../chunks/Formatdate_2cQw8eys.mjs';
+import { $ as $$Card } from '../chunks/Card_DoACURVX.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro("https://stargazers.club");

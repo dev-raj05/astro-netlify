@@ -9,11 +9,7 @@ export default defineConfig({
     port: 5173,
     strictPort: true,
     host: true,
-    allowedHosts: [
-      "devserver.booleanmaths.com",
-      "blogdevback.booleanmaths.com",
-      "blogdev.booleanmaths.com",
-    ],
+    allowedHosts: (process.env.VITE_ALLOWED_HOSTS || "").split(","),
     watch: {
       usePolling: true,
     },

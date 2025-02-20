@@ -1,8 +1,8 @@
 import { s as sanityClient } from '../chunks/page-ssr_BP2uGixO.mjs';
 import { c as createComponent, r as renderTemplate, m as maybeRenderHead, e as renderComponent } from '../chunks/astro/server_Bt2qJKtQ.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Formatdate_O2XX_51R.mjs';
-import { $ as $$Card } from '../chunks/Card_Cj4JZELh.mjs';
+import { $ as $$Layout } from '../chunks/Formatdate_2cQw8eys.mjs';
+import { $ as $$Card } from '../chunks/Card_DoACURVX.mjs';
 /* empty css                                    */
 import { $ as $$Subscribe } from '../chunks/Subscribe_C1xqdV1p.mjs';
 import 'clsx';

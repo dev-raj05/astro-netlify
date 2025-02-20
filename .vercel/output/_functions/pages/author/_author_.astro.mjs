@@ -3,8 +3,8 @@ import { b as createAstro, c as createComponent, r as renderTemplate, e as rende
 import 'kleur/colors';
 import { l as loadQuery, $ as $$PortableText } from '../../chunks/PortableText_DppUJrqO.mjs';
 import { u as unSlugify } from '../../chunks/Slugify_Ta8JJPF6.mjs';
-import { $ as $$Layout } from '../../chunks/Formatdate_O2XX_51R.mjs';
-import { $ as $$Card } from '../../chunks/Card_Cj4JZELh.mjs';
+import { $ as $$Layout } from '../../chunks/Formatdate_2cQw8eys.mjs';
+import { $ as $$Card } from '../../chunks/Card_DoACURVX.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro("https://stargazers.club");
@@ -45,9 +45,10 @@ const $$author = createComponent(async ($$result, $$props, $$slots) => {
     `*[_type == "post" && author._ref == $authorId]{
     _id,
     title,
-    slug,
+    "slug": slug.current,
     "mainImage": mainImage.asset->url,
-    publishedAt
+    publishedAt,
+    tags
   }`,
     { authorId: authorData._id }
   );

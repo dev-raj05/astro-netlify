@@ -50,9 +50,10 @@ const authorPosts = await sanityClient.fetch(
   `*[_type == "post" && author._ref == $authorId]{
     _id,
     title,
-    slug,
+    "slug": slug.current,
     "mainImage": mainImage.asset->url,
-    publishedAt
+    publishedAt,
+    tags
   }`,
   { authorId: authorData._id }
 );
