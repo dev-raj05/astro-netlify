@@ -5,7 +5,6 @@ import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
 import preact from "@astrojs/preact";
-
 import { loadEnv } from "vite";
 import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
