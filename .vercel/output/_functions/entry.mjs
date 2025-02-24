@@ -1,13 +1,13 @@
 import { renderers } from './renderers.mjs';
 import { c as createExports } from './chunks/entrypoint_DS6kTmkR.mjs';
-import { manifest } from './manifest_BHrFRRNX.mjs';
+import { manifest } from './manifest_Dcycikwo.mjs';
 
 const serverIslandMap = new Map();;
 
 const _page0 = () => import('./pages/_image.astro.mjs');
 const _page1 = () => import('./pages/404.astro.mjs');
 const _page2 = () => import('./pages/author/_author_.astro.mjs');
-const _page3 = () => import('./pages/post/_---slug_.astro.mjs');
+const _page3 = () => import('./pages/post/_slug_.astro.mjs');
 const _page4 = () => import('./pages/robots.txt.astro.mjs');
 const _page5 = () => import('./pages/search.astro.mjs');
 const _page6 = () => import('./pages/studio/_---params_.astro.mjs');
@@ -17,7 +17,7 @@ const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/generic.js", _page0],
     ["src/pages/404.astro", _page1],
     ["src/pages/author/[author].astro", _page2],
-    ["src/pages/post/[...slug].astro", _page3],
+    ["src/pages/post/[slug].astro", _page3],
     ["src/pages/robots.txt.ts", _page4],
     ["src/pages/search.astro", _page5],
     ["node_modules/@sanity/astro/dist/studio/studio-route.astro", _page6],
@@ -32,7 +32,7 @@ const _manifest = Object.assign(manifest, {
     middleware: () => import('./_noop-middleware.mjs')
 });
 const _args = {
-    "middlewareSecret": "cf6ca48e-4a34-43dd-81ee-1114caf2940a",
+    "middlewareSecret": "6cf84846-d2a0-4680-aebf-c5308361b76d",
     "skewProtection": false
 };
 const _exports = createExports(_manifest, _args);

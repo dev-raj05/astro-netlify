@@ -28,7 +28,7 @@
 			"dest": "_render"
 		},
 		{
-			"src": "^/post(?:/(.*?))?/?$",
+			"src": "^/post/([^/]+?)/?$",
 			"dest": "_render"
 		},
 		{
