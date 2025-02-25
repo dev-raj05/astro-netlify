@@ -34,7 +34,7 @@ export async function getStaticPaths() {
 }
 
 const { params } = Astro;
-const { slug } = Astro.params;
+// const { slug } = Astro.params;
 
 const querypost =`*[_type == 'post' && slug.current == $slug][0]{
   title,
@@ -101,13 +101,7 @@ const { data: post } = await loadQuery({
           </span>
         ))}
       </div>
-      <!-- <p class=" mt-5 p-2 w-[20%] m-auto">Created by<a href="" class="ml-3"> {post.author}</a></p> -->
-      <!-- <p className="border border-black mt-5 p-2 w-[20%] m-auto flex items-center gap-2">
-        {post.author && post.author.image && (
-          <img src={post.author.image} alt={post.author.name} className="w-8 h-8 rounded-full" />
-        )}
-        <a href="#" className="text-blue-500 hover:underline">{post.author?.name}</a>
-      </p> -->
+      
       <div class="mt-4 text-sm text-gray-500">
         <a href={`/author/${slugify(post.author)}`} class="text-lg font-bold cursor-pointer">Created by {post.author}</a>
        

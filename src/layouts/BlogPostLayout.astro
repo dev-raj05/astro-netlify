@@ -1,0 +1,30 @@
+---
+import Layout from "./Layout.astro";
+
+const {frontmatter} = Astro.props
+console.log("jjjjjjj",frontmatter);
+
+const {title, description,date,category,author ,image} = frontmatter
+
+---
+
+
+<Layout>
+    <header>
+        <div class="container">
+            <small>
+                <a href="">{category}</a>
+            </small>
+            <h1>{title}</h1>
+            <p>{author}</p>
+            <p>{date}</p>
+        </div>
+        <img src={image.src} alt={image.alt}>
+    </header>
+    <div class="post-content">
+        <div class="content">
+            <slot/>
+        </div>
+    </div>
+    <div class="sidebar"></div>
+</Layout>
