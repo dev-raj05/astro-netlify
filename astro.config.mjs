@@ -9,6 +9,8 @@ import { loadEnv } from "vite";
 import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
 
+import netlify from "@astrojs/netlify";
+
 const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
   process.env.NODE_ENV,
   process.cwd(),
@@ -56,7 +58,9 @@ export default defineConfig({
   },
   output: "server",
   // output: "static",
-  adapter: vercel(),
+  adapter: netlify({
+    edgeMiddleware: true,
+  }),
   devToolbar: {
     enabled: false,
   },
