@@ -3,10 +3,16 @@ import { sanityClient } from "sanity:client";
 import Layout from "../../layouts/Layout.astro";
 import Card from "../../components/Card.astro";
 import {unSlugify} from '../../lib/Slugify'
+import { loadQuery } from "../../lib/load-query";
+import type { SanityDocument } from "@sanity/client";
 
-const posts = await sanityClient.fetch(`*[_type == "post"]{
-  "tags": tags[]
-}`);
+const { data: posts } = await loadQuery<SanityDocument[]>({
+    query: `*[_type == "post"]{"tags":tags[]}`,
+  });
+
+// const posts = await sanityClient.fetch(`*[_type == "post"]{
+//   "tags": tags[]
+// }`);
 
 const allTags = [...new Set(posts.flatMap(post => post.tags || []))];
 
@@ -29,9 +35,9 @@ const filteredPosts = await sanityClient.fetch(
   { tag: `${unSlugify(tag)}` }
 );
 
-console.log(tag);
+// console.log(tag);
 
-console.log(filteredPosts);
+// console.log(filteredPosts);
 ---
 <Layout>
   <h1 class=" font-bold mt-10 text-center">Posts related to {unSlugify(tag)} Tag</h1>

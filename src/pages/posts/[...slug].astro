@@ -20,6 +20,7 @@ const pageTitle = encodeURIComponent("Check out this blog post!"); // Default ti
 
 
 
+
 export async function getStaticPaths() {
     const { data: posts } = await loadQuery<SanityDocument[]>({
     query: `*[_type == "post"]`,
