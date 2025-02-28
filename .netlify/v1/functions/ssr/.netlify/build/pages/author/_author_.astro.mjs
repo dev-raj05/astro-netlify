@@ -2,7 +2,7 @@ import { s as sanityClient } from '../../chunks/page-ssr_BP2uGixO.mjs';
 import { e as createAstro, f as createComponent, r as renderTemplate, j as renderComponent, m as maybeRenderHead, h as addAttribute } from '../../chunks/astro/server_8nq5quqT.mjs';
 import 'kleur/colors';
 import { l as loadQuery, $ as $$PortableText } from '../../chunks/PortableText_B10N0pIW.mjs';
-import { u as unSlugify, $ as $$Layout } from '../../chunks/Layout_BfJ4Bn0f.mjs';
+import { u as unSlugify, $ as $$Layout } from '../../chunks/Layout_CyuG8tUY.mjs';
 import { $ as $$Card } from '../../chunks/Card_DKYfhXIb.mjs';
 export { renderers } from '../../renderers.mjs';
 

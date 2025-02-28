@@ -1,7 +1,7 @@
 import '../../chunks/page-ssr_BP2uGixO.mjs';
 import { e as createAstro, f as createComponent, r as renderTemplate, j as renderComponent, l as renderScript, h as addAttribute, m as maybeRenderHead } from '../../chunks/astro/server_8nq5quqT.mjs';
 import 'kleur/colors';
-import { $ as $$Layout, a as $$Icon, s as slugify } from '../../chunks/Layout_BfJ4Bn0f.mjs';
+import { $ as $$Layout, a as $$Icon, s as slugify } from '../../chunks/Layout_CyuG8tUY.mjs';
 import { l as loadQuery, $ as $$PortableText } from '../../chunks/PortableText_B10N0pIW.mjs';
 /* empty css                                     */
 import { f as formatDate } from '../../chunks/Formatdate_DeP9SLGK.mjs';
