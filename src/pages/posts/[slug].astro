@@ -20,18 +20,23 @@ const pageTitle = encodeURIComponent("Check out this blog post!"); // Default ti
 
 
 
-
+export const prerender = true;
 export async function getStaticPaths() {
+  try {
     const { data: posts } = await loadQuery<SanityDocument[]>({
-    query: `*[_type == "post"]`,
-  });
-  return posts.map(({ slug }) => {
-    return {
-      params: {
-        slug: slug.current,
-      },
-    };
-  });
+      query: `*[_type == "post"]`,
+    });
+    if (!posts || posts.length === 0) {
+      console.warn("No posts found in Sanity.");
+      return [];
+    }
+    return posts.map(({ slug }) => ({
+      params: { slug: slug.current },
+    }));
+  } catch (error) {
+    console.error("Error fetching posts from Sanity:", error);
+    return [];
+  }
 }
 
 const { params } = Astro;
@@ -97,14 +102,14 @@ const { data: post } = await loadQuery({
       <div class="flex flex-wrap justify-center gap-3 mt-7">
         {post.tags.map((tag) => (
           <span class="badge badge-outline k px-3 py-1 rounded-full bg-[#F2F2F2] hover:scale-105 transition">
-            <a href={`/tags/${slugify(tag)}`} class="">{tag}</a>
+            <a href={`/tags/${slugify(tag)}/`} class="">{tag}</a>
             
           </span>
         ))}
       </div>
       
       <div class="mt-4 text-sm text-gray-500">
-        <a href={`/author/${slugify(post.author)}`} class="text-lg font-bold cursor-pointer">Created by {post.author}</a>
+        <a href={`/author/${slugify(post.author)}/`} class="text-lg font-bold cursor-pointer">Created by {post.author}</a>
        
       </div>
       

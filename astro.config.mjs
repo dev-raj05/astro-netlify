@@ -18,7 +18,7 @@ const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
 );
 
 export default defineConfig({
-  site: "https://stargazers.club",
+  site: "https://yoursite.netlify.app",
   integrations: [
     preact(),
     sanity({

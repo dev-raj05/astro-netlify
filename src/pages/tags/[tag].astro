@@ -6,6 +6,8 @@ import {unSlugify} from '../../lib/Slugify'
 import { loadQuery } from "../../lib/load-query";
 import type { SanityDocument } from "@sanity/client";
 
+
+
 const { data: posts } = await loadQuery<SanityDocument[]>({
     query: `*[_type == "post"]{"tags":tags[]}`,
   });
